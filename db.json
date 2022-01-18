@@ -1,0 +1,28 @@
+{
+  "types": [
+    {
+      "id_type": "1",
+      "libelle": "Pizzeria"
+    },
+    {
+      "id_type": "2",
+      "libelle": "Créperie"
+    },
+    {
+      "id_type": "3",
+      "libelle": "Boulangerie"
+    },
+    {
+      "id_type": "4",
+      "libelle": "Kebab"
+    },
+    {
+      "id_type": "5",
+      "libelle": "Thaï"
+    },
+    {
+      "id_type": "6",
+      "libelle": "Supermarché"
+    }
+  ]
+}
