@@ -1,3 +1,5 @@
-<div *ngFor="let category of listCategories">
+<div class="parent d-flex justify-content-center align-items-center flex-wrap flex-row  ">
+    <div *ngFor="let category of listCategories">
     <app-card-category [categoryData]="category"></app-card-category>
+    </div>
 </div>
