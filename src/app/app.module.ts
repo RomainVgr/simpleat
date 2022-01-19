@@ -15,6 +15,8 @@ import { CardRestoComponent } from './card-resto/card-resto.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListCategoriesComponent } from './pages/list-categories/list-categories.component';
+import { FavorisUserComponent } from './pages/favoris-user/favoris-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     CardCategoryComponent,
     CardRestoComponent,
     FooterComponent,
-    HomePageComponent
+    HomePageComponent,
+    ListCategoriesComponent,
+    FavorisUserComponent
   ],
   imports: [
     BrowserModule,
