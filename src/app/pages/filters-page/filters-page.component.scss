@@ -12,38 +12,33 @@
   justify-content: flex-start;
   margin: 0 0 0.5em 8.2em;
   color: #CE0000;
-
 }
-
 
 
 .accordion{
-padding-top: 200px;
-  max-width: 50%;
+padding-top: 100px;
+max-width: 30%;
 margin : 0 auto;
-padding-bottom: 200px;
-border-radius: 20px;
-
+margin-bottom: 100px;
 
 }
 
-.accordion-header{
+.accordion-body{
+  background-color: #F5F3F3;
+
+}
+
+.accordion-item{
 
   margin-bottom: 70px;
-  border-radius: 30px;
 }
 
-.accordion-button{
-background-color: #CE0000;
-color: white;
-font-family: cursive;
-border-radius: 30px 30px 30px 30px;
-padding-top: 50px;
-
-
-
+ .accordion-button{
+ background-color: #CE0000;
+ color: white;
+ font-family: cursive;
+filter: drop-shadow(0 0 0.2rem grey);
 }
-
 
 .btn-search{
   background-color: #CE0000;
@@ -51,4 +46,8 @@ padding-top: 50px;
   margin: 100px auto;
   border-radius: 20px;
   display: block;
+  height: 75px;
+  width: 300px;
+  font-size: 20px;
+
 }
