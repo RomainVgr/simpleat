@@ -6,6 +6,7 @@ import { ListCategoriesComponent } from './pages/list-categories/list-categories
 import { RestoPageComponent } from './pages/resto-page/resto-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FiltersPageComponent } from './pages/filters-page/filters-page.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'Deconnexion', redirectTo: 'home'},
     {path: 'restaurants',component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},
+    {path: 'signin', component: SigninComponent},
     {path: '**', redirectTo: 'page-not-found' }
 ];
 
