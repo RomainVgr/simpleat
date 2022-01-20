@@ -15,6 +15,8 @@ import { CardRestoComponent } from './card-resto/card-resto.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RestoPageComponent } from './pages/resto-page/resto-page.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     CardCategoryComponent,
     CardRestoComponent,
     FooterComponent,
-    HomePageComponent
+    HomePageComponent,
+    RestoPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
