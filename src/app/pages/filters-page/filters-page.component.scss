@@ -1,0 +1,54 @@
+
+.separation{
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 2px solid #CE0000;
+  max-width: 83%;
+}
+
+.titre{
+
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 0 0.5em 8.2em;
+  color: #CE0000;
+
+}
+
+
+
+.accordion{
+padding-top: 200px;
+  max-width: 50%;
+margin : 0 auto;
+padding-bottom: 200px;
+border-radius: 20px;
+
+
+}
+
+.accordion-header{
+
+  margin-bottom: 70px;
+  border-radius: 30px;
+}
+
+.accordion-button{
+background-color: #CE0000;
+color: white;
+font-family: cursive;
+border-radius: 30px 30px 30px 30px;
+padding-top: 50px;
+
+
+
+}
+
+
+.btn-search{
+  background-color: #CE0000;
+  text-align: center;
+  margin: 100px auto;
+  border-radius: 20px;
+  display: block;
+}
