@@ -14,6 +14,7 @@ import { ListCategoriesComponent } from './pages/list-categories/list-categories
 
 import { RestoPageComponent } from './pages/resto-page/resto-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { FiltersPageComponent } from './pages/filters-page/filters-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     HomePageComponent,
     ListCategoriesComponent,
     RestoPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FiltersPageComponent
   ],
   imports: [
     BrowserModule,
