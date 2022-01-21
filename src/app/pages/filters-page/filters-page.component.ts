@@ -7,9 +7,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersPageComponent implements OnInit {
 
-  constructor() { }
+  minDistance : any;
+  maxDistance : any;
+  selectDistance : any;
 
-  ngOnInit(): void {
-  }
+
+
+  minPrice : any;
+  maxPrice: any;
+  selectPrice : any;
+
+  constructor() {
+
+    this.minDistance = 0;
+    this.maxDistance = 4;
+    this.selectDistance = 0;
+
+    this.minPrice = 0;
+    this.maxPrice = 20;
+    this.selectPrice = 0;
+
+   }
+
+  ngOnInit(): void {}
+
+  changeValueDistance(valueDistance: any){
+    this.selectDistance = valueDistance.target.value;
+    console.log(this.selectDistance);
+}
+
+
+changeValuePrice(valuePrice: any){
+  this.selectPrice = valuePrice.target.value;
+  console.log(this.selectPrice);
+}
 
 }
