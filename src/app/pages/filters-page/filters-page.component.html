@@ -12,9 +12,17 @@
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
-        <label for="price-min">Price:</label>
-        <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+        <div class="distance p-3">
+          <span>Veuillez sélectionner la distance souhaitée</span>
+        </div>
+        <input type="range" class="form-range" min="0" max="4" id="customRange2">
+        <div class="valuesDistance d-flex d-flex justify-content-between">
+          <span>0 KM</span>
+          <span>2 KM</span>
+          <span>4 KM</span>
+        </div>
       </div>
+
     </div>
    </div>
 
@@ -26,6 +34,17 @@
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
+
+       <div class="minMax p-3">
+         <span>Veuillez sélectionner le prix souhaité</span>
+        </div>
+       <input type="range" class="form-range" min="0" max="20" id="customRange2">
+       <div class="valuesPrix d-flex d-flex justify-content-between">
+        <span>0€</span>
+        <span>10€</span>
+        <span>20€</span>
+      </div>
+
       </div>
     </div>
  </div>
@@ -38,6 +57,17 @@
   </h2>
   <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
     <div class="accordion-body">
+
+      <div class="Titles  m-3 d-flex justify-content-around">
+        <span>Sur Place</span>
+        <span>A Emporter</span>
+      </div>
+      <div class="PlaceEmporterCheck m-3 d-flex justify-content-around">
+        <input class="surPlace-check-input" type="checkbox" id="inlineCheckbox1" value="surPlaceOption" style="width: 25px; height: 25px; border-radius: 300px;">
+        <input class="Emporter-check-input" type="checkbox" id="inlineCheckbox2" value="aEmporterOption" style="width: 25px; height: 25px;">
+      </div>
+
+
     </div>
   </div>
 </div>
@@ -50,6 +80,15 @@
   </h2>
   <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
     <div class="accordion-body">
+
+      <div class="titrePmr  m-3 d-flex justify-content-around">
+        <span>Accès PMR</span>
+      </div>
+      <div class="pmr-check d-flex justify-content-center p-2">
+        <input class="pmr-check-input mx-auto" type="checkbox" value="" id="pmrIndeterminate" style="width: 25px; height: 25px;">
+        <label class="pmr-check-label" for="pmrIndeterminate"></label>
+      </div>
+
     </div>
   </div>
 </div>
@@ -62,6 +101,10 @@
   </h2>
   <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
     <div class="accordion-body">
+      <div class="titreAvis  m-3 d-flex justify-content-around">
+        <span>Choisissez parmi les avis déjà donnés</span>
+      </div>
+      <app-avis-bar></app-avis-bar>
     </div>
   </div>
 </div>

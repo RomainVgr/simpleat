@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: 'home', component: HomePageComponent },
     { path: 'categories', component: ListCategoriesComponent },
     { path: 'favoris', component: FavorisUserComponent },
-    { path: 'filters', component: FiltersPageComponent },
+    { path: 'filtres', component: FiltersPageComponent },
     { path: 'Deconnexion', redirectTo: 'home'},
     {path: 'restaurants',component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},

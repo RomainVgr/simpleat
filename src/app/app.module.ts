@@ -15,6 +15,8 @@ import { ListCategoriesComponent } from './pages/list-categories/list-categories
 import { RestoPageComponent } from './pages/resto-page/resto-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FiltersPageComponent } from './pages/filters-page/filters-page.component';
+import { AvisBarComponent } from './filters/avis-bar/avis-bar.component';
+import { IconComponent } from './filters/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { FiltersPageComponent } from './pages/filters-page/filters-page.componen
     ListCategoriesComponent,
     RestoPageComponent,
     PageNotFoundComponent,
-    FiltersPageComponent
+    FiltersPageComponent,
+    AvisBarComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
