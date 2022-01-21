@@ -1,3 +1,19 @@
+.rond{
+    padding: 0.7em;
+    background-color: rgb(255, 255, 255);
+    top: 1em;
+    right: 1em;
+    border-radius: 50%;
+}
+
+.heart{
+    display: flex;
+    font-size: 1.6em;
+    padding: 0;
+    margin:0;
+    color: #FF2048;
+}
+
 .titre-resto{
     margin-bottom: 0.9rem;
 }
@@ -10,8 +26,24 @@
     border-radius: 0 0 0.25rem 0.25rem;
     padding: 1.375rem 0.75rem;
     
-    
 }
+.accordion-button.collapsed {
+    background: #CE0000;
+  }
+  
+  .accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  }
+ 
+
+  .ps-5 {
+    padding-left: 5.4rem !important;
+}
+.pe-5 {
+    padding-right: 5rem !important;
+}
+
+
 .accordion .btn:focus{
     box-shadow: none;
 }
@@ -22,6 +54,26 @@
     list-style-type: none;
     font-size: 1.5em;
     color:#ffd900;
+    
+}
+
+.trait-rouge{
+border-bottom: 1px solid #CE0000;
+opacity: 50%;
+
+}
+
+.button{
+    display: block;
+    padding: 0.5em 2em 0.5em ;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: #545454;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+
 }
 
 
