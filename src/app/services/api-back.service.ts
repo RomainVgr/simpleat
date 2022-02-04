@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -8,10 +8,17 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiBackService {
   
-  constructor(private httpClient: HttpClient) { }
+  public restoByCat : Observable<any[]> = of([]);
+
+  constructor(private httpClient: HttpClient) { 
+  }
 
   getRestaurants(): Observable<any[]> {
     return this.httpClient.get<any[]>(`${environment.apiUrl}/restaurants`);
+  }
+
+  getRestaurantsByCateg(id : number): void {
+    this.restoByCat = this.httpClient.get<any[]>(`${environment.apiUrl}/restaurantbytype/${id}`);
   }
 
   getCategories(): Observable<any[]>{

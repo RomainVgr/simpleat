@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiBackService } from 'src/app/services/api-back.service';
 
 @Component({
   selector: 'app-resto-page',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestoPageComponent implements OnInit {
 
-  constructor() { }
+  public listRestaurants : any[];
+
+  constructor(private apiBackService : ApiBackService) { 
+    this.listRestaurants = [];
+  }
 
   ngOnInit(): void {
+        
+    this.apiBackService.restoByCat.subscribe((restaurants: any[]) => {
+
+      this.listRestaurants = restaurants;
+      
+
+    });
   }
 
 }

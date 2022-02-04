@@ -4,7 +4,7 @@
     <div class="card-body rounded-bottom">
       
      
-      <a routerLink="../restaurants" class="btn">{{ categoryData.libelle }}</a>
+      <a routerLink="../restaurants" class="btn" (click)="onClickCateg(categoryData.id)">{{ categoryData.libelle }}</a>
     </div>
   </div>
   
