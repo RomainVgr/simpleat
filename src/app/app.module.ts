@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { FiltersPageComponent } from './pages/filters-page/filters-page.component';
 import { AvisBarComponent } from './filters/avis-bar/avis-bar.component';
 import { IconComponent } from './filters/icon/icon.component';
+import { TemplatePageComponent } from './components/template-page/template-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { IconComponent } from './filters/icon/icon.component';
     PageNotFoundComponent,
     FiltersPageComponent,
     AvisBarComponent,
-    IconComponent
+    IconComponent,
+    TemplatePageComponent
   ],
   imports: [
     BrowserModule,
