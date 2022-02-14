@@ -1,13 +1,19 @@
 <div class="signin-form text-center">
   <main class="form-signin">
-    <img src="../../../assets/images-header/logo.png"><br>
-      <br><h5>Le bon plan pour manger</h5>
+      <form (ngSubmit)="onSubmit(signinForm)" #signinForm="ngForm">
+      <h5>Merci de vous connecter</h5>
+      <img src="../../../assets/images-header/logo.png"><br>
+      <br>Le bon plan pour manger<br>
           <div class="form-floating">
               <input type="email"
                       class="form-control"
                       id="floatingInput"
                       placeholder=""
-                      name="email">
+                      name="email"
+                      ngModel
+                      required
+                      [ngClass]="{'is-valid': signinForm.form.touched && signinForm.form.value['email'] != '' ,
+                                  'is-invalid': signinForm.form.touched && signinForm.form.value['email'] == ''}">
               <label for="floatingInput">Adresse email</label>
           </div>
           <div class="form-floating">
@@ -15,13 +21,27 @@
                       class="form-control"
                       id="floatingPassword"
                       placeholder=""
-                      name="password">
+                      name="password"
+                      ngModel
+                      required
+                      [ngClass]="{'is-valid': signinForm.form.touched && signinForm.form.value['password'] != '' ,
+                                  'is-invalid': signinForm.form.touched && signinForm.form.value['password'] == ''}">
               <label for="floatingPassword">Mot de passe</label>
           </div>
 
-          <button type="submit">Connexion</button>
+          <button class="w-100 btn btn-lg btn-danger"
+                  type="submit"
+                  [disabled]="signinForm.invalid">Je me connecte !</button>
+                  <p>
+                      Form is dirty : {{ signinForm.form.dirty }}
+                  </p>
+                  <p>
+                      Form is touched : {{ signinForm.form.touched }}
+                  </p>
+      </form>
 
-
+      <div *ngIf="errorForm">
+          <p class="text-danger">Il manque des informations dans le formulaire...</p>
+      </div>
   </main>
 </div>
-

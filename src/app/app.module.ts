@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './header/components/nav-bar/nav-bar.component';
@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListCategoriesComponent } from './pages/list-categories/list-categories.component';
-
+import { SigninComponent } from './pages/signin/signin.component';
 import { RestoPageComponent } from './pages/resto-page/resto-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
@@ -26,12 +26,14 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     HomePageComponent,
     ListCategoriesComponent,
     RestoPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
