@@ -67,8 +67,8 @@
             <span>A Emporter</span>
           </div>
           <div class="PlaceEmporterCheck m-3 d-flex justify-content-around">
-            <input class="surPlace-check-input" type="checkbox"  value="surPlaceOption" style="width: 25px; height: 25px; border-radius: 300px;">
-            <input class="Emporter-check-input" type="checkbox" value="aEmporterOption" style="width: 25px; height: 25px;">
+            <input class="surPlace-check-input" type="checkbox"  value="surPlaceOption" style="width: 25px; height: 25px; border-radius: 300px;" (change) = "changeValueSurPlace($event)">
+            <input class="Emporter-check-input" type="checkbox" value="aEmporterOption" style="width: 25px; height: 25px;" (change) = "changeValueEmporter($event)">
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
             <span>Accès PMR</span>
           </div>
           <div class="pmr-check d-flex justify-content-center p-2">
-            <input class="pmr-check-input mx-auto" type="checkbox" value=""  style="width: 25px; height: 25px;">
+            <input class="pmr-check-input mx-auto" type="checkbox" value="AccesPMR"  style="width: 25px; height: 25px;" (change) = "changeValuePMR($event)">
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@
           <div class="titreAvis  m-3 d-flex justify-content-around">
             <span>Choisissez parmi les avis déjà donnés</span>
           </div>
-          <app-avis-bar></app-avis-bar>
+          <app-avis-bar (stateNumber)="onStateNumberChange($event)"></app-avis-bar>
         </div>
       </div>
     </div>
@@ -116,5 +116,7 @@
 
 </div>
 
-  <button class="btn-search btn-primary" type="button">LANCER LA RECHERCHE</button>
+  <button class="btn-search btn-primary" type="button" 
+  (click) = "onSendFilters()"  
+  (click) ="onSendRating()">LANCER LA RECHERCHE</button>
 
