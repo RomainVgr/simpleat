@@ -17,7 +17,7 @@
             <div class="distance p-3">
               <span>Veuillez sélectionner la distance souhaitée</span>
             </div>
-            <input type="range" class="form-range"  min="{{minDistance}}"  max="{{maxDistance}}" (change)="changeValueDistance($event)" >
+            <input type="range" class="form-range"  min="{{minDistance}}"  max="{{maxDistance}}" (change)="OnChangeValueDistance($event)" >
             <div class="valuesDistance d-flex d-flex justify-content-between">
               <span>0 KM</span>
               <span>2 KM</span>
@@ -41,7 +41,7 @@
           <div class="minMax p-3">
             <span>Veuillez sélectionner le prix souhaité</span>
             </div>
-          <input type="range" class="form-range" ng-model="valuePrix" min="{{minPrice}}"  max="{{maxPrice}}" (change)="changeValuePrice($event)">
+          <input type="range" class="form-range" ng-model="valuePrix" min="{{minPrice}}"  max="{{maxPrice}}" (change)="OnChangeValuePrice($event)">
           <div class="valuesPrix d-flex d-flex justify-content-between">
             <span>0€</span>
             <span>10€</span>
@@ -67,8 +67,8 @@
             <span>A Emporter</span>
           </div>
           <div class="PlaceEmporterCheck m-3 d-flex justify-content-around">
-            <input class="surPlace-check-input" type="checkbox"  value="surPlaceOption" style="width: 25px; height: 25px; border-radius: 300px;" (change) = "changeValueSurPlace($event)">
-            <input class="Emporter-check-input" type="checkbox" value="aEmporterOption" style="width: 25px; height: 25px;" (change) = "changeValueEmporter($event)">
+            <input class="surPlace-check-input" type="checkbox"  value="surPlaceOption" style="width: 25px; height: 25px; border-radius: 300px;" (change) = "OnChangeValueSurPlace($event)">
+            <input class="Emporter-check-input" type="checkbox" value="aEmporterOption" style="width: 25px; height: 25px;" (change) = "OnChangeValueEmporter($event)">
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
             <span>Accès PMR</span>
           </div>
           <div class="pmr-check d-flex justify-content-center p-2">
-            <input class="pmr-check-input mx-auto" type="checkbox" value="AccesPMR"  style="width: 25px; height: 25px;" (change) = "changeValuePMR($event)">
+            <input class="pmr-check-input mx-auto" type="checkbox" value="AccesPMR"  style="width: 25px; height: 25px;" (change) = "OnChangeValuePMR($event)">
           </div>
         </div>
       </div>

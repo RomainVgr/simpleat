@@ -9,22 +9,22 @@ import { ApiBackService } from 'src/app/services/api-back.service';
 })
 export class FiltersPageComponent implements OnInit {
 
-  minDistance : any;
-  maxDistance : any;
+ public minDistance : any;
+ public maxDistance : any;
 
-  minPrice : any;
-  maxPrice: any;
-  selectPrice : any;
-  selectDistance : any;
-  selectPmr :any;
-  selectSurPlace : any;
-  selectEmporter : any;
+ public minPrice : any;
+ public maxPrice: any;
+ public selectPrice : any;
+ public selectDistance : any;
+ public selectPmr :any;
+ public selectSurPlace : any;
+ public selectEmporter : any;
 
   @Output() stateNumber = new EventEmitter();
   @Output() rangeNumber = new EventEmitter();
-  selectRating: number;
+  public selectRating: number;
 
-  listRestau: string[];
+  public listRestau: string[];
 
 
   constructor(private apiBackService : ApiBackService, private route : Router) {
@@ -44,6 +44,7 @@ export class FiltersPageComponent implements OnInit {
     this.selectRating = 0;
 
     this.listRestau = [];
+    
 
   }
 
@@ -55,23 +56,23 @@ export class FiltersPageComponent implements OnInit {
   }
 
 
-changeValueDistance(valueDistance: any){
+OnChangeValueDistance(valueDistance: any){
   this.selectDistance = valueDistance.target.value;
 }
 
-changeValuePrice(valuePrice: any){
+OnChangeValuePrice(valuePrice: any){
   this.selectPrice = valuePrice.target.value;
 }
 
-changeValuePMR(valuePmr : any){
+OnChangeValuePMR(valuePmr : any){
 this.selectPmr = (valuePmr.target.checked);
 }
 
-changeValueSurPlace(valuePlace : any){
+OnChangeValueSurPlace(valuePlace : any){
   this.selectSurPlace = valuePlace.target.checked;
 }
 
-changeValueEmporter(valueEmporter : any){
+OnChangeValueEmporter(valueEmporter : any){
   this.selectEmporter = valueEmporter.target.checked;
 }
 
@@ -79,21 +80,18 @@ onStateNumberChange(stateNumber: number): void {
   this.selectRating = stateNumber;
 }
 
-onSendRating():void {
+onSendRating() {
   this.stateNumber.emit(this.selectRating);
 }
+
+
 onSendFilters(){
-  
-
-  console.log("distance : " + this.selectDistance);
-  console.log("prix : " +this.selectPrice);
-  console.log("sur Place : " +this.selectSurPlace);
-  console.log("A Emporter : " +this.selectEmporter);
-  console.log("Acces PMR : " +this.selectPmr);
-  console.log("Avis : " +this.selectRating);
-  console.log()
-
-
+  console.log("Distance :" ,this.selectDistance);
+  console.log("Prix :" ,this.selectPrice);
+  console.log("Sur Place  :" ,this.selectSurPlace);
+  console.log("A emporter :" ,this.selectEmporter);
+  console.log("PMR :" ,this.selectPmr);
+  console.log("avis :" ,this.selectRating);
 }
 
 }
