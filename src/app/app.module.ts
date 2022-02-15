@@ -34,7 +34,8 @@ import { TemplatePageComponent } from './components/template-page/template-page.
     FiltersPageComponent,
     AvisBarComponent,
     IconComponent,
-    SigninComponent
+    SigninComponent,
+    TemplatePageComponent
   ],
   imports: [
     BrowserModule,
