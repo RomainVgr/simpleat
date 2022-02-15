@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiBackService } from 'src/app/services/api-back.service';
 
 @Component({
   selector: 'app-filters-page',
@@ -17,7 +18,7 @@ export class FiltersPageComponent implements OnInit {
   maxPrice: any;
   selectPrice : any;
 
-  constructor() {
+  constructor(private apiBackService : ApiBackService) {
 
     this.minDistance = 0;
     this.maxDistance = 4;
@@ -29,7 +30,12 @@ export class FiltersPageComponent implements OnInit {
 
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apiBackService.getRestaurants().subscribe(resp =>{
+      console.log(resp);
+      
+    })
+  }
 
   changeValueDistance(valueDistance: any){
     this.selectDistance = valueDistance.target.value;
