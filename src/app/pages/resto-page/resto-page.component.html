@@ -1,11 +1,10 @@
-
-    <h2 class="titre ">Résultats :</h2>
-        <div class="separation"></div>
-        <div class="parent d-flex justify-content-center align-items-center flex-wrap flex-row  ">
-        <div *ngFor="let restaurantData of listRestaurants">
-                <app-card-resto [restaurant]= "restaurantData"></app-card-resto>
-            </div>
-        </div>
+<app-template-page [title]="'Résultats :'">
+    <div *ngFor="let restaurantData of listRestaurants">
+        <app-card-resto [restaurant]= "restaurantData"></app-card-resto>
+    </div>
+</app-template-page>
     
+        
+        
 
 
