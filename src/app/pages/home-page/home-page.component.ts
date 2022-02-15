@@ -25,6 +25,9 @@ export class HomePageComponent implements OnInit {
       this.listCategories = listCategories;
 
     });
+    console.log(this.apiBackService);
+    
+    
 
   }
 
