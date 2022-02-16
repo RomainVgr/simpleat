@@ -4,117 +4,133 @@
 
 <div class="accordion">
 
-<!-------------------------------------------------------------------------- Accordéon Distance -------------------------------------------------------------------------->
+  <!-------------------------------------------------------------------------- Accordéon Distance -------------------------------------------------------------------------->
 
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne">
-            <p style="font-family:'Roboto';font-size: 20px;">Distance</p>
-          </button>
-        </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
-          <div class="accordion-body">
-            <div class="distance p-3">
-              <span>Veuillez sélectionner la distance souhaitée</span>
-            </div>
-            <input type="range" class="form-range"  min="{{minDistance}}"  max="{{maxDistance}}" (change)="changeValueDistance($event)" >
-            <div class="valuesDistance d-flex d-flex justify-content-between">
-              <span>0 KM</span>
-              <span>2 KM</span>
-              <span>4 KM</span>
-            </div>
-          </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseOne">
+        <p style="font-family:'Roboto';font-size: 20px;">Distance</p>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+        <div class="distance p-3">
+          <span>Veuillez sélectionner la distance souhaitée</span>
         </div>
-      </div>
-
-      <!-------------------------------------------------------------------------- Accordéon Prix -------------------------------------------------------------------------->
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo">
-            <p style="font-family:'Roboto'; font-size: 20px;">Prix</p>
-          </button>
-        </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-          <div class="accordion-body">
-
-          <div class="minMax p-3">
-            <span>Veuillez sélectionner le prix souhaité</span>
-            </div>
-          <input type="range" class="form-range" ng-model="valuePrix" min="{{minPrice}}"  max="{{maxPrice}}" (change)="changeValuePrice($event)">
-          <div class="valuesPrix d-flex d-flex justify-content-between">
-            <span>0€</span>
-            <span>10€</span>
-            <span>20€</span>
-          </div>
-          </div>
-        </div>
-    </div>
-
-    <!-------------------------------------------------------------------------- Accordéon Place/Emporter -------------------------------------------------------------------------->
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree">
-          <p style="font-family:'Roboto'; font-size: 20px;">Sur Place / A Emporter</p>
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-        <div class="accordion-body">
-
-          <div class="Titles  m-3 d-flex justify-content-around">
-            <span>Sur Place</span>
-            <span>A Emporter</span>
-          </div>
-          <div class="PlaceEmporterCheck m-3 d-flex justify-content-around">
-            <input class="surPlace-check-input" type="checkbox"  value="surPlaceOption" style="width: 25px; height: 25px; border-radius: 300px;">
-            <input class="Emporter-check-input" type="checkbox" value="aEmporterOption" style="width: 25px; height: 25px;">
-          </div>
+        <input type="range" class="form-range" min="{{minDistance}}" max="{{maxDistance}}"
+          (change)="OnChangeValueDistance($event)">
+        <div class="valuesDistance d-flex d-flex justify-content-between">
+          <span>0 KM</span>
+          <span>2 KM</span>
+          <span>4 KM</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-------------------------------------------------------------------------- Accordéon AccesPMR -------------------------------------------------------------------------->
+  <!-------------------------------------------------------------------------- Accordéon Prix -------------------------------------------------------------------------->
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour">
-          <p style="font-family:'Roboto'; font-size: 20px;">Accès PMR</p>
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
-        <div class="accordion-body">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseTwo">
+        <p style="font-family:'Roboto'; font-size: 20px;">Prix</p>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingTwo">
+      <div class="accordion-body">
 
-          <div class="titrePmr  m-3 d-flex justify-content-around">
-            <span>Accès PMR</span>
-          </div>
-          <div class="pmr-check d-flex justify-content-center p-2">
-            <input class="pmr-check-input mx-auto" type="checkbox" value=""  style="width: 25px; height: 25px;">
-          </div>
+        <div class="minMax p-3">
+          <span>Veuillez sélectionner le prix souhaité</span>
+        </div>
+        <input type="range" class="form-range" ng-model="valuePrix" min="{{minPrice}}" max="{{maxPrice}}"
+          (change)="OnChangeValuePrice($event)">
+        <div class="valuesPrix d-flex d-flex justify-content-between">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-------------------------------------------------------------------------- Accordéon Avis -------------------------------------------------------------------------->
+  <!-------------------------------------------------------------------------- Accordéon Place/Emporter -------------------------------------------------------------------------->
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingFive">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive">
-          <p style="font-family:'Roboto'; font-size: 20px;">Avis</p>
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
-        <div class="accordion-body">
-          <div class="titreAvis  m-3 d-flex justify-content-around">
-            <span>Choisissez parmi les avis déjà donnés</span>
-          </div>
-          <app-avis-bar></app-avis-bar>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseThree">
+        <p style="font-family:'Roboto'; font-size: 20px;">Sur Place / A Emporter</p>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingThree">
+      <div class="accordion-body">
+
+        <div class="Titles  m-3 d-flex justify-content-around">
+          <span>Sur Place</span>
+          <span>A Emporter</span>
+        </div>
+        <div class="PlaceEmporterCheck m-3 d-flex justify-content-around">
+          <input class="surPlace-check-input" type="checkbox" value="surPlaceOption"
+            style="width: 25px; height: 25px; border-radius: 300px;" (change)="OnChangeValueSurPlace($event)">
+          <input class="Emporter-check-input" type="checkbox" value="aEmporterOption" style="width: 25px; height: 25px;"
+            (change)="OnChangeValueEmporter($event)">
         </div>
       </div>
     </div>
+  </div>
+
+  <!-------------------------------------------------------------------------- Accordéon AccesPMR -------------------------------------------------------------------------->
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseFour">
+        <p style="font-family:'Roboto'; font-size: 20px;">Accès PMR</p>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingFour">
+      <div class="accordion-body">
+
+        <div class="titrePmr  m-3 d-flex justify-content-around">
+          <span>Accès PMR</span>
+        </div>
+        <div class="pmr-check d-flex justify-content-center p-2">
+          <input class="pmr-check-input mx-auto" type="checkbox" value="AccesPMR" style="width: 25px; height: 25px;"
+            (change)="OnChangeValuePMR($event)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-------------------------------------------------------------------------- Accordéon Avis -------------------------------------------------------------------------->
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseFive">
+        <p style="font-family:'Roboto'; font-size: 20px;">Avis</p>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingFive">
+      <div class="accordion-body">
+        <div class="titreAvis  m-3 d-flex justify-content-around">
+          <span>Choisissez parmi les avis déjà donnés</span>
+        </div>
+        <app-avis-bar (stateNumber)="onStateNumberChange($event)"></app-avis-bar>
+      </div>
+    </div>
+  </div>
 
 
 </div>
 
-  <button class="btn-search btn-primary" type="button">LANCER LA RECHERCHE</button>
-
+<button class="btn-search btn-primary" type="button" (click)="onSendFilters()" (click)="onSendRating()">LANCER LA
+  RECHERCHE</button>

@@ -18,16 +18,9 @@ export class HomePageComponent implements OnInit {
     this.apiBackService.getCategories().subscribe((listCategories: any[]) => {
       // console.log(listCategories);
 
-      // const listCategoriesLibelle = listCategories.map(
-      //   (category) => category.libelle
-      // );
-
       this.listCategories = listCategories;
 
-    });
-    // console.log(this.apiBackService);
-    
-    
+    });    
 
   }
   onEventLike(isLiked : boolean) {

@@ -10,22 +10,32 @@ export class ApiBackService {
   
   public restoByCat : Observable<any[]> = of([]);
   restoLiked$ = new Subject<any>();
+  public restoFilter : any[];
+  public routeParam ?: string;
 
   constructor(private httpClient: HttpClient) { 
+    this.restoFilter = [];
+    this.routeParam = "";
   }
 
   getRestaurants(): Observable<any[]> {
     return this.httpClient.get<any[]>(`${environment.apiUrl}/restaurants`);
   }
 
-  getRestaurantsByCateg(id : number): void {
+  getRestaurantsByCateg(id : number, routeParam ?: string ): void {
     this.restoByCat = this.httpClient.get<any[]>(`${environment.apiUrl}/restaurantbytype/${id}`);
+    this.routeParam = routeParam;
   }
 
   getCategories(): Observable<any[]>{
     return this.httpClient.get<any[]>(`${environment.apiUrl}/types`);
   }
 
+  setListRestau(listRestau : any[], routeParam ?: string ) : void{
 
+    this.restoFilter =  listRestau;
+    this.routeParam = routeParam;
+    
+  }
 
 }

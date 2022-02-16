@@ -16,12 +16,24 @@ export class RestoPageComponent implements OnInit {
 
   ngOnInit(): void {
         
+    // arrivée sur la restau-page depuis filtres ou home(catégories) : appel a une méthode différente du service
+    if(this.apiBackService.routeParam === "filtres"){
+      this.listRestaurants = this.apiBackService.restoFilter;
+
+    }else if(this.apiBackService.routeParam === "home"){
     this.apiBackService.restoByCat.subscribe((restaurants: any[]) => {
-
       this.listRestaurants = restaurants;
-      
-
     });
+    }else{ // si on arrive sur l'url /restaurants directement = tous les restau affichés
+      
+    this.apiBackService.getRestaurants().subscribe((restaurants: any[]) => {
+      this.listRestaurants = restaurants;
+
+    })
+    }
+    
+
+    
   }
 
 }
