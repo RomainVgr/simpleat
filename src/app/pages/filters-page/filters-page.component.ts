@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiBackService } from 'src/app/services/api-back.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class FiltersPageComponent implements OnInit {
 
  public minPrice : any;
  public maxPrice: any;
- public selectPrice : any;
+ public selectPrice : number;
  public selectDistance : any;
  public selectPmr :any;
  public selectSurPlace : any;
@@ -24,18 +24,18 @@ export class FiltersPageComponent implements OnInit {
   @Output() rangeNumber = new EventEmitter();
   public selectRating: number;
 
-  public listRestau: string[];
+  public listRestau: any[];
 
 
-  constructor(private apiBackService : ApiBackService, private route : Router) {
+  constructor(private apiBackService : ApiBackService, private route : Router, private activatedRoute : ActivatedRoute) {
 
     this.minDistance = 0;
     this.maxDistance = 4;
     this.selectDistance = null;
 
-    this.minPrice = 0;
-    this.maxPrice = 20;
-    this.selectPrice = null;
+    this.minPrice = 1;
+    this.maxPrice = 4;
+    this.selectPrice = 0;
 
     this.selectPmr = false;
     this.selectEmporter = false;
@@ -51,8 +51,10 @@ export class FiltersPageComponent implements OnInit {
   ngOnInit(): void {
       this.apiBackService.getRestaurants().subscribe((restaurants: any[]) => {
         this.listRestau = restaurants;
-        console.log(this.listRestau);
     });
+
+    console.log(this.listRestau);
+    
   }
 
 
@@ -85,13 +87,22 @@ onSendRating() {
 }
 
 
-onSendFilters(){
-  console.log("Distance :" ,this.selectDistance);
-  console.log("Prix :" ,this.selectPrice);
-  console.log("Sur Place  :" ,this.selectSurPlace);
-  console.log("A emporter :" ,this.selectEmporter);
-  console.log("PMR :" ,this.selectPmr);
-  console.log("avis :" ,this.selectRating);
+onSendFilters() : void{
+  let restaus = this.listRestau;
+
+  restaus = restaus.filter((restau)=>
+
+    this.selectPrice == restau.prix
+
+  ), 
+  console.log( this.activatedRoute.snapshot.routeConfig?.path);
+  
+
+  this.apiBackService.setListRestau(restaus, this.activatedRoute.snapshot.routeConfig?.path);
+    // on fait passer en second parametre le path de la route c'est a dire "filtres"
+  
+  this.route.navigate(['restaurants']);
+  
 }
 
 }
