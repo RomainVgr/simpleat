@@ -92,12 +92,11 @@ onSendFilters() : void{
 
   restaus = restaus.filter((restau)=>
 
-    this.selectPrice == restau.prix
+    this.selectPrice <= restau.prix
 
   ), 
   console.log( this.activatedRoute.snapshot.routeConfig?.path);
   
-
   this.apiBackService.setListRestau(restaus, this.activatedRoute.snapshot.routeConfig?.path);
     // on fait passer en second parametre le path de la route c'est a dire "filtres"
   
