@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiBackService.getCategories().subscribe((listCategories: any[]) => {
-      console.log(listCategories);
+      // console.log(listCategories);
 
       // const listCategoriesLibelle = listCategories.map(
       //   (category) => category.libelle
@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit {
       this.listCategories = listCategories;
 
     });
-    console.log(this.apiBackService);
+    // console.log(this.apiBackService);
     
     
 

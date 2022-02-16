@@ -16,7 +16,7 @@ export class CardRestoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.restaurant);
+    // console.log(this.restaurant);
     
   }
   onClickLike() {
