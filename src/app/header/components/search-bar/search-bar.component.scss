@@ -14,27 +14,23 @@
 
   width: 100%;
   height: 30px;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #CE0000;
   position: relative;
 
 }
-
-img{
-  padding-left: 2%;
-
-}
-
 
 p{
   background-color: white;
   position: absolute;
   top: 15px;
-  left: 130px;
+  left: 68px;
   padding : 0 10px 0 10px;
-  font-weight: bolder;
   color: grey;
 }
 
-// .form-control{
-// }
+
+
+input[type="search"], textarea{
+  background-color: #edf5f1;
+}
 

@@ -16,16 +16,15 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiBackService.getCategories().subscribe((listCategories: any[]) => {
-      console.log(listCategories);
-
-      // const listCategoriesLibelle = listCategories.map(
-      //   (category) => category.libelle
-      // );
+      // console.log(listCategories);
 
       this.listCategories = listCategories;
 
-    });
+    });    
 
+  }
+  onEventLike(isLiked : boolean) {
+    this.apiBackService.restoLiked$.next(isLiked);
   }
 
 }

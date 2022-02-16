@@ -5,6 +5,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ListCategoriesComponent } from './pages/list-categories/list-categories.component';
 import { RestoPageComponent } from './pages/resto-page/resto-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { FiltersPageComponent } from './pages/filters-page/filters-page.component';
 import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'home', component: HomePageComponent },
     { path: 'categories', component: ListCategoriesComponent },
     { path: 'favoris', component: FavorisUserComponent },
+    { path: 'filtres', component: FiltersPageComponent },
     { path: 'Deconnexion', redirectTo: 'home'},
     {path: 'restaurants',component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},

@@ -14,6 +14,10 @@ import { ListCategoriesComponent } from './pages/list-categories/list-categories
 import { SigninComponent } from './pages/signin/signin.component';
 import { RestoPageComponent } from './pages/resto-page/resto-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { FiltersPageComponent } from './pages/filters-page/filters-page.component';
+import { AvisBarComponent } from './filters/avis-bar/avis-bar.component';
+import { IconComponent } from './filters/icon/icon.component';
+import { TemplatePageComponent } from './components/template-page/template-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     ListCategoriesComponent,
     RestoPageComponent,
     PageNotFoundComponent,
-    SigninComponent
+    FiltersPageComponent,
+    AvisBarComponent,
+    IconComponent,
+    SigninComponent,
+    TemplatePageComponent
   ],
   imports: [
     BrowserModule,
