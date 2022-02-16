@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component,EventEmitter, Input, Output, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card-resto',
@@ -9,6 +9,9 @@ export class CardRestoComponent implements OnInit {
 
   @Input() restaurant : any ; 
   distance : number;
+  @Input() likeResto: any; 
+  @Output() clickLike = new EventEmitter<boolean>();
+  isLiked : boolean = false;
   
   constructor() {
     this.distance = 0 ;
@@ -29,6 +32,11 @@ export class CardRestoComponent implements OnInit {
     console.log(this.distance);
       
     
+  }
+  onClickLike() {
+    console.log('click');
+    this.isLiked = !this.isLiked;
+    this.clickLike.emit(this.isLiked);
   }
 
   getDistanceFromLatLonInKm(lat1 : number , lon1 : number, lat2 : number, lon2 : number) {

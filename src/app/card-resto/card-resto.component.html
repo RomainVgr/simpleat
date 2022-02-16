@@ -1,7 +1,11 @@
 <div class="container position-relative shadow p-0 mb-5 bg-body rounded rounded  m-5 rounded-top "
-  style="width: 19rem;">
+  style="width: 21rem;">
     <img class="card-img-top " src="assets/ImagesRestos/photo.jpg" alt="Card image cap">
-      <div class="rond position-absolute"><i class="heart far fa-heart"></i></div>
+      <div class="rond position-absolute">
+        <app-icon class="heart" 
+        [iconName]="isLiked ? 'heart-fill' : 'heart'" 
+        [iconColor]="'#e35d6a'" 
+        (click)="onClickLike()"></app-icon></div>
       <div class="card-body rounded-bottom">
         <h3 class="titre-resto d-flex justify-content-center d-flex align-items-center" style="font-size: 24px;">
           {{restaurant.nom }}</h3>
@@ -12,8 +16,8 @@
               [attr.data-bs-target]="'#restaurant'+ restaurant.id" aria-expanded="true" aria-controls="collapseOne">
               PLUS D'INFOS</button>
           </h2>
-          <div id="restaurant{{restaurant.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample">
+        <div id="restaurant{{restaurant.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne"
+             data-bs-parent="#accordionExample">
           <div class=" body accordion-body">
           <strong>This is the first item's accordion body.</strong>
           <div class="star-icon d-flex justify-content-flex-start d-flex align-items-center pt-2 ">
@@ -26,6 +30,7 @@
               </ul>
             <span class="ps-3 mt-3 " style="font-size: 1.1em; color:#545454">5/5</span>
           </div>
+
           <div class="infos ps-1 pt-2" style="color:#545454">
             <div>
               <span class="categorie pe-4" style="font-style: italic;" *ngFor="let categorie of restaurant.typerestaus">{{ categorie.libelle }}</span>
@@ -57,14 +62,14 @@
 
           <div class="trait-rouge pt-2 pb-0"></div>
           <div class="critere ps-1 pt-3">
-            <span class="sur-place pe-1" style="color:#545454">Sur place :</span>            
+            <span class="sur-place pe-3" style="color:#545454">Sur place :</span>            
             <app-icon 
-              [iconName]="restaurant.surPlace ? 'fas fa-check-square' : 'fas fa-times-circle ps-1 pt-1'"
+              [iconName]="restaurant.surPlace ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-2 pt-1 '"
               [iconColor]="restaurant.surPlace ? '#4ECB71' : '#ED2F2F'"
             ></app-icon>
-            <span class="a-emporter ps-3 pe-1" style="color:#545454">A emporter :</span>  
+            <span class="a-emporter pe-2 ps-4 " style="color:#545454">A emporter :</span>  
             <app-icon 
-              [iconName]="restaurant.emporter ? 'fas fa-check-square' : 'fas fa-times-circle ps-1 pt-1'"
+              [iconName]="restaurant.emporter ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-2 pt-1'"
               [iconColor]="restaurant.emporter ? '#4ECB71' : '#ED2F2F'"
             ></app-icon>
           </div>
@@ -72,7 +77,7 @@
           <div class="critere d-flex justify-content-center ps-1 pt-3 pb-3">
             <span class="acces-pmr pe-1" style="color:#545454">Accès PMR :</span>
             <app-icon 
-            [iconName]="restaurant.accesPMR ? 'fas fa-check-square' : 'fas fa-times-circle ps-1 pt-1'"
+            [iconName]="restaurant.accesPMR ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-1 pt-1'"
             [iconColor]="restaurant.accesPMR ? '#4ECB71' : '#ED2F2F'"
           ></app-icon>
           </div>
