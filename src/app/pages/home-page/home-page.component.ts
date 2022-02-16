@@ -30,5 +30,8 @@ export class HomePageComponent implements OnInit {
     
 
   }
+  onEventLike(isLiked : boolean) {
+    this.apiBackService.restoLiked$.next(isLiked);
+  }
 
 }

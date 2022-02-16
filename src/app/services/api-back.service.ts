@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class ApiBackService {
   
   public restoByCat : Observable<any[]> = of([]);
+  restoLiked$ = new Subject<any>();
 
   constructor(private httpClient: HttpClient) { 
   }
