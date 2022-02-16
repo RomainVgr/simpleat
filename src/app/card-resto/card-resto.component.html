@@ -1,5 +1,5 @@
 <div class="container position-relative shadow p-0 mb-5 bg-body rounded rounded  m-5 rounded-top "
-  style="width: 21rem;">
+  style="width: 22rem;">
     <img class="card-img-top " src="assets/ImagesRestos/photo.jpg" alt="Card image cap">
       <div class="rond position-absolute">
         <app-icon class="heart" 
@@ -21,7 +21,7 @@
           <div class=" body accordion-body">
           <strong>This is the first item's accordion body.</strong>
           <div class="star-icon d-flex justify-content-flex-start d-flex align-items-center pt-2 ">
-              <ul class="avis-star d-flex flex-row  ps-1 pt-3 pe-0 pb-0 mb-0  ">
+              <ul class="avis-star d-flex flex-row  ps-1 pt-3 pe-0 pb-2 mb-0  ">
                 <li class="star pe-2"><i class="bi bi-star-fill"></i></li>
                 <li class="star pe-2"><i class="bi bi-star-fill"></i></li>
                 <li class="star pe-2"><i class="bi bi-star-fill"></i></li>
@@ -30,35 +30,34 @@
               </ul>
             <span class="ps-3 mt-3 " style="font-size: 1.1em; color:#545454">5/5</span>
           </div>
-
-          <div class="infos ps-1 pt-2" style="color:#545454">
-            <div>
-              <span class="categorie pe-4" style="font-style: italic;" *ngFor="let categorie of restaurant.typerestaus">{{ categorie.libelle }}</span>
-            </div>
-            <div>
-              <i class="fas fa-walking ps-2 pe-1" style="color:#a8a8a8"></i>
-              <span class="categorie pe-4" style="font-weight: bold;">{{distance}} mètres</span>
-            </div>
-            <div>
-              <i class="fas fa-euro-sign ps-2 pe-1" style="color:#a8a8a8"></i>
-              <span class="prix" style="font-weight: bold;">5-10€</span>
-            </div>
+          <div>
+            <span class="categorie ps-1 pe-4" style="font-style: italic;" *ngFor="let categorie of restaurant.typerestaus">{{ categorie.libelle }}</span>
           </div>
           <div class="trait-rouge pt-3"></div>
-
-          <div *ngIf="restaurant.website; else noWebsite">
-            <p class="description pt-3 ps-1 pe-1 text-justify d-block" style="font-size:0.9em; color:#545454">
-              <a href="{{restaurant.website}}" class="description pe-1" style="font-style: italic;font-weight: bold;">Site Web</a>
-
-            </p>
-          </div>
-          <!-- le else de notre *ngIf plus haut-->
-          <ng-template #noWebsite class="description pe-1" style="font-style: italic;font-weight: bold;">
-            <div> 
-              <p class="description pt-3 ps-1 pe-1 text-justify d-block" style="font-size:0.9em; color:#545454"> Pas de site Web </p>
+          <div class="infos  pt-2" style="color:#545454">
+            
+              <i class="fas fa-walking ps-2 pe-2" style="color:#a8a8a8"></i>
+              <span class="categorie pe-2" style="font-weight: bold;">{{distance}}m</span>
+            
+            
+              <i class="fas fa-euro-sign ps-2 pe-2" style="color:#a8a8a8"></i>
+              <span class="prix" style="font-weight: bold;">5-10€</span>
+           
+            <div class="d-inline-flex" *ngIf="restaurant.website; else noWebsite">
+              <p class="description pt-3 ps-2 pe-1"><i class="bi bi-globe2 ps-2 pe-2" style="color:#a8a8a8"></i>
+                <a href="{{restaurant.website}}" class="description text-decoration-none pe-1" style="font-style: italic;font-weight: bold; color:#545454">Site Web</a>
+  
+              </p>
             </div>
-          </ng-template>
-          <!--  ------------------------------------  -->
+            <!-- le else de notre *ngIf plus haut-->
+            <ng-template #noWebsite>
+              <div class="d-inline-flex"> 
+                <p class="description pt-3 ps-3 pe-1 " style="font-size:1.9vh ;color:#545454"> Pas de site Web </p>
+              </div>
+            </ng-template>
+            <!--  ------------------------------------  -->
+          </div>
+         
 
           <div class="trait-rouge pt-2 pb-0"></div>
           <div class="critere ps-1 pt-3">

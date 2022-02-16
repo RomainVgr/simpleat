@@ -1,6 +1,6 @@
 <div (mouseleave)="onMouseLeave()">
   <app-icon *ngFor="let star of starStates; let starIndex = index"
-  [iconName]="star.stateHoverUser ? 'bi-star-fill' : 'bi-star'"
+  [iconName]="star.stateHoverUser ? 'star-fill' : 'star'"
   [iconSize]="2.5"
   [iconColor]="'#ffbf00'"
   style="padding: 6px;"
