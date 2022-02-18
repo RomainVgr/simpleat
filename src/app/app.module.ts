@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './header/components/nav-bar/nav-bar.component';
@@ -18,6 +18,8 @@ import { FiltersPageComponent } from './pages/filters-page/filters-page.componen
 import { AvisBarComponent } from './filters/avis-bar/avis-bar.component';
 import { IconComponent } from './filters/icon/icon.component';
 import { TemplatePageComponent } from './components/template-page/template-page.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { AddRestauComponent } from './admin-component/add-restau/add-restau.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,16 @@ import { TemplatePageComponent } from './components/template-page/template-page.
     AvisBarComponent,
     IconComponent,
     SigninComponent,
-    TemplatePageComponent
+    TemplatePageComponent,
+    AdminPageComponent,
+    AddRestauComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -31,6 +31,9 @@ export class RestoPageComponent implements OnInit {
 
     })
     }
+  console.log(this.apiBackService);
+  
+    
     
 
     
