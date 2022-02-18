@@ -20,7 +20,7 @@ export class RestoPageComponent implements OnInit {
     if(this.apiBackService.routeParam === "filtres"){
       this.listRestaurants = this.apiBackService.restoFilter;
 
-    }else if(this.apiBackService.routeParam === "home"){
+    }else if(this.apiBackService.routeParam === "categories"){
     this.apiBackService.restoByCat.subscribe((restaurants: any[]) => {
       this.listRestaurants = restaurants;
     });

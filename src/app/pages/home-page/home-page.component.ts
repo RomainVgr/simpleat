@@ -8,19 +8,13 @@ import { ApiBackService } from 'src/app/services/api-back.service';
 })
 export class HomePageComponent implements OnInit {
 
-  listCategories : string[];
 
   constructor(private apiBackService : ApiBackService) {
-    this.listCategories = [];
+    
    }
 
   ngOnInit(): void {
-    this.apiBackService.getCategories().subscribe((listCategories: any[]) => {
-      // console.log(listCategories);
-
-      this.listCategories = listCategories;
-
-    });    
+      
 
   }
   onEventLike(isLiked : boolean) {

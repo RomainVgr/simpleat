@@ -17,14 +17,16 @@
       aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
         <div class="distance p-3">
-          <span>Veuillez sélectionner la distance souhaitée</span>
+          <span>Veuillez sélectionner la distance souhaitée (En Km) </span>
         </div>
         <input type="range" class="form-range" min="{{minDistance}}" max="{{maxDistance}}"
           (change)="OnChangeValueDistance($event)">
         <div class="valuesDistance d-flex d-flex justify-content-between">
-          <span>0 KM</span>
-          <span>2 KM</span>
-          <span>4 KM</span>
+          <span>0</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
         </div>
       </div>
     </div>
@@ -109,28 +111,10 @@
     </div>
   </div>
 
-  <!-------------------------------------------------------------------------- Accordéon Avis -------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingFive">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseFive">
-        <p style="font-family:'Roboto'; font-size: 20px;">Avis</p>
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
-      aria-labelledby="panelsStayOpen-headingFive">
-      <div class="accordion-body">
-        <div class="titreAvis  m-3 d-flex justify-content-around">
-          <span>Choisissez parmi les avis déjà donnés</span>
-        </div>
-        <app-avis-bar (stateNumber)="onStateNumberChange($event)"></app-avis-bar>
-      </div>
-    </div>
-  </div>
-
-
+  
 </div>
 
-<button class="btn-search btn-primary" type="button" (click)="onSendFilters()" (click)="onSendRating()">LANCER LA
+<button class="btn-search btn-primary" type="button" (click)="onSendFilters()">LANCER LA
   RECHERCHE</button>
