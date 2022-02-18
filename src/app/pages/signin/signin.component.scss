@@ -1,19 +1,18 @@
 .signin-form {
   height: 100vh;
   padding-top: 40px;
-  background-image: url(../../../assets/fond_signin.png);
+  background-image: url(../../../assets/fond-signin.png);
   background-position: center;
 }
 
 .form-signin {
-  width: 500px;
-  //max-width: 330px;
+  max-width: 500px;
   padding: 15px;
   margin: auto;
+  margin-top: 20vh;
   background-color: #f0f0f0;
   border-radius: 15px;
   box-shadow: 10px 10px 10px grey;
-  margin-top: 25vh;
 }
 
 .form-floating:focus-within {
