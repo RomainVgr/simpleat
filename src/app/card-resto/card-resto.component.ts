@@ -17,6 +17,7 @@ export class CardRestoComponent implements OnInit {
   
   constructor(private apiBackService : ApiBackService) {
     this.distance = 0 ;
+  
    }
 
   ngOnInit(): void {
