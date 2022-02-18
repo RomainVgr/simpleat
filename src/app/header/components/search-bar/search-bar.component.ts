@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiBackService } from 'src/app/services/api-back.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,14 +9,37 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-@Output() searchText = new EventEmitter();
+searchText = new EventEmitter();
+listRestau: any [];
+restauByName : any[];
 
-  constructor() {}
+  constructor(private apiBackService : ApiBackService, private route: Router, private activatedRoute: ActivatedRoute) {
 
-  ngOnInit(): void {}
+    this.listRestau = [];
+    this.restauByName = [];
+  }
+
+  ngOnInit(): void {
+
+    this.apiBackService.getRestaurants().subscribe((restaurants: any[]) => {
+      this.listRestau = restaurants;
+    });
+    console.log(this.listRestau);
+
+  }
 
   onChangeInput(search :string) {
-    this.searchText.emit(search);
-    console.log(search);
+
+
+    // this.searchText.emit(search)
+    this.restauByName = this.listRestau;
+    this.restauByName = this.restauByName.filter((restau : any) =>
+    restau.nom.toLowerCase().includes(search.toLowerCase()));
+
+    console.log(this.restauByName);
+
+    this.apiBackService.setListRestau(this.restauByName, "filtres");
+    this.route.navigate(['restaurants']);
+
   }
 }

@@ -10,9 +10,6 @@ import { ApiBackService } from './services/api-back.service';
 export class AppComponent {
   title = 'simpleat';
   dontShow: boolean = false;
-  searchParam: any;
-  listResto: any;
-
 
   constructor(private router:Router, private apiBackService : ApiBackService){
     this.router.events.subscribe(e=>{
@@ -27,29 +24,8 @@ export class AppComponent {
       }
     })
   
-
-
-  this.searchParam = {
-    searchText : "",
-    filterText : "first"
-  }
-
 }
 
-  ngOnInit(): void {
-
-    this.listResto = this.apiBackService.getRestaurants();
-
-    console.log(this.listResto)
-  }
-
-  // onSearchResto(searchText: string,) {
-  //   this.searchParam.searchText = searchText;
-  //   const rawData = this.apiBackService.getRestaurants();
-    
-  //   this.listResto = rawData.filter(resto =>
-  //      resto.name.toLowerCase().includes(searchText.toLowerCase()))
-  // }
-
+  ngOnInit(): void { }
 
 }
