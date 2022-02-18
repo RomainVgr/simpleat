@@ -4,7 +4,8 @@
       <img src="assets/images-header/LOGO2.png" alt="logo">
     </div>
       <form style="width: 30%;" class="d-flex align-items-center pe-2 pt-2">
-        <input class="form-control me-5 position-relative" type="search" placeholder="Trouver votre SIMPL'EAT..." aria-label="Search">
+        <input class="form-control me-5 position-relative" type="search" #newItem placeholder="Trouver votre SIMPL'EAT..." aria-label="Search">
+        <button (click) = "onChangeInput(newItem.value)">Recherche</button>
       </form>
         <div class="trait">
           <p>LE BON PLAN POUR MANGER</p>
