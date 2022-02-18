@@ -1,5 +1,5 @@
 <div class="signin-form text-center">
-  <main class="form-signin">
+  <main class="form-signin d-inline-flex">
       <form (ngSubmit)="onSubmit(signinForm)" #signinForm="ngForm">
       <h5>Merci de vous connecter</h5>
       <img src="../../../assets/images-header/logo.png"><br>
@@ -32,12 +32,12 @@
           <button class="w-100 btn btn-lg btn-danger"
                   type="submit"
                   [disabled]="signinForm.invalid">Je me connecte !</button>
-                  <p>
+                  <!--<p>
                       Form is dirty : {{ signinForm.form.dirty }}
                   </p>
                   <p>
                       Form is touched : {{ signinForm.form.touched }}
-                  </p>
+                  </p>-->
       </form>
 
       <div *ngIf="errorForm">

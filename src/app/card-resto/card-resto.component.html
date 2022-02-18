@@ -2,14 +2,14 @@
   style="width: 22rem;">
     <img class="card-img-top " src="assets/ImagesRestos/photo.jpg" alt="Card image cap">
       <div class="rond position-absolute">
-        <app-icon class="heart" 
-        [iconName]="isLiked ? 'heart-fill' : 'heart'" 
-        [iconColor]="'#e35d6a'" 
+        <app-icon class="heart"
+        [iconName]="isLiked ? 'heart-fill' : 'heart'"
+        [iconColor]="'#e35d6a'"
         (click)="onClickLike()"></app-icon></div>
       <div class="card-body rounded-bottom">
         <h3 class="titre-resto d-flex justify-content-center d-flex align-items-center" style="font-size: 24px;">
           {{restaurant.nom }}</h3>
-        
+
         <div class="accordion  " id="accordionExample">
           <h2 class="accordion-header pt-1" id="headingOne">
               <button class="btn shadow accordion-button collapsed ps-5 pe-5 " type="button" data-bs-toggle="collapse"
@@ -35,39 +35,39 @@
           </div>
           <div class="trait-rouge pt-3"></div>
           <div class="infos  pt-2" style="color:#545454">
-            
+
               <i class="fas fa-walking ps-2 pe-2" style="color:#a8a8a8"></i>
               <span class="categorie pe-2" style="font-weight: bold;">{{distance}}m</span>
-            
-            
+
+
               <i class="fas fa-euro-sign ps-2 pe-2" style="color:#a8a8a8"></i>
               <span class="prix" style="font-weight: bold;">5-10€</span>
-           
+
             <div class="d-inline-flex" *ngIf="restaurant.website; else noWebsite">
               <p class="description pt-3 ps-2 pe-1"><i class="bi bi-globe2 ps-2 pe-2" style="color:#a8a8a8"></i>
                 <a href="{{restaurant.website}}" class="description text-decoration-none pe-1" style="font-style: italic;font-weight: bold; color:#545454">Site Web</a>
-  
+
               </p>
             </div>
             <!-- le else de notre *ngIf plus haut-->
             <ng-template #noWebsite>
-              <div class="d-inline-flex"> 
+              <div class="d-inline-flex">
                 <p class="description pt-3 ps-3 pe-1 " style="font-size:1.9vh ;color:#545454"> Pas de site Web </p>
               </div>
             </ng-template>
             <!--  ------------------------------------  -->
           </div>
-         
+
 
           <div class="trait-rouge pt-2 pb-0"></div>
           <div class="critere ps-1 pt-3">
-            <span class="sur-place pe-3" style="color:#545454">Sur place :</span>            
-            <app-icon 
+            <span class="sur-place pe-3" style="color:#545454">Sur place :</span>
+            <app-icon
               [iconName]="restaurant.surPlace ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-2 pt-1 '"
               [iconColor]="restaurant.surPlace ? '#4ECB71' : '#ED2F2F'"
             ></app-icon>
-            <span class="a-emporter pe-2 ps-4 " style="color:#545454">A emporter :</span>  
-            <app-icon 
+            <span class="a-emporter pe-2 ps-4 " style="color:#545454">A emporter :</span>
+            <app-icon
               [iconName]="restaurant.aEmporter ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-2 pt-1'"
               [iconColor]="restaurant.aEmporter ? '#4ECB71' : '#ED2F2F'"
             ></app-icon>
@@ -75,8 +75,8 @@
           <div class="trait-rouge pt-3"></div>
           <div class="critere d-flex justify-content-center ps-1 pt-3 pb-3">
             <span class="acces-pmr pe-1" style="color:#545454">Accès PMR :</span>
-            
-            <app-icon 
+
+            <app-icon
             [iconName]="restaurant.accesPMR ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-1 pt-1'"
             [iconColor]="restaurant.accesPMR ? '#4ECB71' : '#ED2F2F'"
           ></app-icon>
