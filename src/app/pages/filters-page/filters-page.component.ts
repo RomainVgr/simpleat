@@ -129,9 +129,6 @@ export class FiltersPageComponent implements OnInit {
 
     // -------------------------------------------------------------------------------------------------------------------------------------------
 
-    console.log(this.activatedRoute.snapshot.routeConfig?.path);
-    console.log(restaus);
-
     this.apiBackService.setListRestau(restaus, this.activatedRoute.snapshot.routeConfig?.path);
     // on fait passer en second parametre le path de la route c'est a dire "filtres"
     this.route.navigate(['restaurants']);

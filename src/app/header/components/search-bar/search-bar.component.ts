@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiBackService } from 'src/app/services/api-back.service';
 
 @Component({
@@ -9,37 +9,33 @@ import { ApiBackService } from 'src/app/services/api-back.service';
 })
 export class SearchBarComponent implements OnInit {
 
-searchText = new EventEmitter();
-listRestau: any [];
-restauByName : any[];
+  searchText = new EventEmitter();
+  listRestau: any[];
+  restauByName: any[];
 
-  constructor(private apiBackService : ApiBackService, private route: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private apiBackService: ApiBackService, private route: Router) {
 
     this.listRestau = [];
     this.restauByName = [];
   }
 
   ngOnInit(): void {
-
     this.apiBackService.getRestaurants().subscribe((restaurants: any[]) => {
       this.listRestau = restaurants;
     });
-    console.log(this.listRestau);
 
   }
 
-  onChangeInput(search :string) {
+  onChangeInput(search: string) {
 
+      this.restauByName = this.listRestau;
 
-    // this.searchText.emit(search)
-    this.restauByName = this.listRestau;
-    this.restauByName = this.restauByName.filter((restau : any) =>
-    restau.nom.toLowerCase().includes(search.toLowerCase()));
+      this.restauByName = this.restauByName.filter((restau: any) =>
+        restau.nom.toLowerCase().includes(search.toLowerCase()));
+      console.log(this.restauByName);
 
-    console.log(this.restauByName);
-
-    this.apiBackService.setListRestau(this.restauByName, "filtres");
-    this.route.navigate(['restaurants']);
-
+      this.apiBackService.setListRestau(this.restauByName, "filtres");
+      this.route.navigate(['restaurants']);
+    }
   }
-}
+
