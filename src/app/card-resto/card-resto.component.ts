@@ -13,9 +13,16 @@ export class CardRestoComponent implements OnInit {
   @Input() likeResto: any; 
   @Output() clickLike = new EventEmitter<boolean>();
   isLiked : boolean = false;
+  priceRef : object;
+  
   
   constructor(private apiBackService : ApiBackService) {
     this.distance = 0 ;
+    this.priceRef = {1 : '€ 1-10€',
+                     2 : '€€ 11-20€',
+                     3 : '€€€ 21-30€',
+                     4 : '€€€€ 31-40€',            
+                    }
    }
 
   ngOnInit(): void {
