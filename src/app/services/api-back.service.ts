@@ -2,6 +2,7 @@ import { Injectable, Input } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Restaurant } from '../pages/models/restaurant';
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +58,10 @@ export class ApiBackService {
       deg2rad(deg : number) {
         return deg * (Math.PI/180)
       }
-    }
+    
+  addRestaurant( newRestau : Restaurant) : Observable<any>{
+    return this.httpClient.post<any[]>(`${environment.apiUrl}/add-restaurant`, newRestau);
+    
+  }
 
-
-
+}
