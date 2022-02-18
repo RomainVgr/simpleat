@@ -19,6 +19,7 @@ import { AvisBarComponent } from './filters/avis-bar/avis-bar.component';
 import { IconComponent } from './filters/icon/icon.component';
 import { TemplatePageComponent } from './components/template-page/template-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { AddRestauComponent } from './admin-component/add-restau/add-restau.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
     IconComponent,
     SigninComponent,
     TemplatePageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    AddRestauComponent
   ],
   imports: [
     BrowserModule,
