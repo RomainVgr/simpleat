@@ -13,14 +13,13 @@ export class CardRestoComponent implements OnInit {
   @Input() likeResto: any; 
   @Output() clickLike = new EventEmitter<boolean>();
   isLiked : boolean = false;
+  priceRef = ["Info indisponible"," € 1-10€ "," €€ 11-20€"," €€€ 21-30€"," €€€€ 31-40€"];
   
   constructor(private apiBackService : ApiBackService) {
     this.distance = 0 ;
    }
 
   ngOnInit(): void {
-
-    console.log(this.restaurant);
 
     this.distance = Math.round(
       this.apiBackService.setDistance(
@@ -29,10 +28,7 @@ export class CardRestoComponent implements OnInit {
       this.restaurant.latitude,
       this.restaurant.longitude)
       );
-
-    console.log(this.distance);
-      
-    
+ 
   }
   onClickLike() {
     console.log('click');

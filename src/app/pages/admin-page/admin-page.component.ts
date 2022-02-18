@@ -28,7 +28,9 @@ export class AdminPageComponent implements OnInit {
       adresseFc : new FormControl('', [Validators.required]),
       telephoneFc : new FormControl(''),
       websiteFc : new FormControl(''),
+      surPlaceFc : new FormControl(''),
       aEmporterFc : new FormControl(''),
+      accesPMRFc : new FormControl('')
     })
   }
 
@@ -42,9 +44,9 @@ export class AdminPageComponent implements OnInit {
     const adresseFc = this.signupForm.value['adresseFc'];
     const telephoneFc = this.signupForm.value['telephoneFc'];
     const websiteFc = this.signupForm.value['websiteFc'];
+    const surPlaceFc = this.signupForm.value['surPlaceFc'];
     const aEmporterFc = this.signupForm.value['aEmporterFc'];
-    // const accesPMRFc = this.signupForm.value['accesPMRFc'];
-    // const surPlaceFc = this.signupForm.value['surPlaceFc'];
+    const accesPMRFc = this.signupForm.value['accesPMRFc'];
     
     const restaurant: Restaurant = {
       latitude: latitudeFc,
@@ -54,9 +56,9 @@ export class AdminPageComponent implements OnInit {
       adresse : adresseFc,    
       telephone : telephoneFc,
       website : websiteFc,
+      surPlace : surPlaceFc,
       aEmporter : aEmporterFc,
-      // accesPMR : accesPMRFc,
-      // surPlace : surPlaceFc
+      accesPMR : accesPMRFc
     }
     if( restaurant.latitude   !== '' && 
         restaurant.longitude  !== '' &&
@@ -68,6 +70,8 @@ export class AdminPageComponent implements OnInit {
           this.router.navigate(['restaurants'])
         );
     }else{
+      console.log("hello");
+      
       this.errorMessage = "Renseigner les champs obligatoires **";
     }
   

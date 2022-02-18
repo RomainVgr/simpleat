@@ -74,20 +74,117 @@
                         class="form-control" 
                         id="floatingInputWebsite" 
                         placeholder="" 
-                        name="website" >
+                        name="website"
+                        formControlName="websiteFc"
+                        [ngClass]="{'is-valid' : signupForm.controls['websiteFc'].touched && signupForm.controls['websiteFc'].valid, 
+                                    'is-invalid':  signupForm.controls['websiteFc'].touched && !signupForm.controls['websiteFc'].valid}">
                 <label for="floatingInputWebsite">Site Web</label>
             </div>
-            <div class="form-floating">
-                <input type="checkbox" 
-                        class="form-control" 
-                        id="floatingInputAEmporter" 
-                        placeholder="" 
-                        name="website" >
-                <label for="floatingInputAEmporter">A Emporter</label>
+
+            <div class="form-control">
+                <p class="text-left"> Sur Place :</p>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxSurPlaceTrue"
+                    name="surPlaceFc" 
+                    value=true
+                    formControlName="surPlaceFc">
+                    <label class="form-check-label" for="checkboxSurPlaceTrue">Oui</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxSurPlaceFalse"
+                    name="surPlaceFc" 
+                    value=false
+                    formControlName="surPlaceFc">
+                    <label class="form-check-label" for="checkboxSurPlaceFalse">Non</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxSurPlaceNull"
+                    name="surPlaceFc" 
+                    value=null
+                    formControlName="surPlaceFc">
+                    <label class="form-check-label" for="checkboxSurPlaceNull">Pas d'infos</label>
+                </div>
+            </div>
+            
+            <div class="form-control">
+                <p class="text-left"> A Emporter :</p>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxAEmporterTrue"
+                    name="aEmporterFc" 
+                    value=true
+                    formControlName="aEmporterFc">
+                    <label class="form-check-label" for="checkboxAEmporterTrue">Oui</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxAEmporterFalse"
+                    name="aEmporterFc" 
+                    value=false
+                    formControlName="aEmporterFc">
+                    <label class="form-check-label" for="checkboxAEmporterFalse">Non</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxAEmporterNull"
+                    name="aEmporterFc" 
+                    value=null
+                    formControlName="aEmporterFc">
+                    <label class="form-check-label" for="checkboxAEmporterNull">Pas d'infos</label>
+                </div>
             </div>
 
-            <div *ngIf="errorMessage" class="alert alert-warning">
-                {{errorMessage}}
+            <div class="form-control">
+                <p class="text-left"> Accès PMR :</p>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxAccesPMRTrue"
+                    name="accesPMRFc" 
+                    value=true
+                    formControlName="accesPMRFc">
+                    <label class="form-check-label" for="checkboxAccesPMRTrue">Oui</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxAccesPMRFalse"
+                    name="accesPMRFc" 
+                    value=false
+                    formControlName="accesPMRFc">
+                    <label class="form-check-label" for="checkboxAccesPMRFalse">Non</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input 
+                    type="radio"
+                    class="form-check-input"
+                    id="checkboxAccesPMRNull"
+                    name="accesPMRFc" 
+                    value=null
+                    formControlName="accesPMRFc">
+                    <label class="form-check-label" for="checkboxAccesPMRNull">Pas d'infos</label>
+                </div>
+            </div>
+                
+            <div *ngIf="errorMessage" class="alert alert-danger">
+                <p class="alert-link">{{errorMessage}}</p>
             </div>
 
             <button class="w-100 btn btn-lg btn-success" 

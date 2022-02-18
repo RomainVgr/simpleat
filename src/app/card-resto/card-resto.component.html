@@ -41,8 +41,8 @@
 
 
               <i class="fas fa-euro-sign ps-2 pe-2" style="color:#a8a8a8"></i>
-              <span class="prix" style="font-weight: bold;">5-10€</span>
-
+              <span class="prix" style="font-weight: bold;"></span>
+           
             <div class="d-inline-flex" *ngIf="restaurant.website; else noWebsite">
               <p class="description pt-3 ps-2 pe-1"><i class="bi bi-globe2 ps-2 pe-2" style="color:#a8a8a8"></i>
                 <a href="{{restaurant.website}}" class="description text-decoration-none pe-1" style="font-style: italic;font-weight: bold; color:#545454">Site Web</a>
@@ -66,8 +66,8 @@
               [iconName]="restaurant.surPlace ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-2 pt-1 '"
               [iconColor]="restaurant.surPlace ? '#4ECB71' : '#ED2F2F'"
             ></app-icon>
-            <span class="a-emporter pe-2 ps-4 " style="color:#545454">A emporter :</span>
-            <app-icon
+            <span class="a-emporter pe-2 ps-4 " style="color:#545454">A emporter :</span>  
+            <app-icon 
               [iconName]="restaurant.aEmporter ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-2 pt-1'"
               [iconColor]="restaurant.aEmporter ? '#4ECB71' : '#ED2F2F'"
             ></app-icon>
