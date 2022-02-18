@@ -12,69 +12,12 @@ import { Restaurant } from '../models/restaurant';
 export class AdminPageComponent implements OnInit {
 
 
-  public signupForm: FormGroup;
-  public errorMessage ?: string;
-
-  constructor( private router: Router, private apiBackService : ApiBackService) {
-    this.signupForm = new FormGroup({});
+  constructor( ) {
+   
   }
 
   ngOnInit(): void {
-    this.signupForm = new FormGroup({
-      nomFc : new FormControl('', [Validators.required]),
-      prixFc : new FormControl(''),
-      longitudeFc : new FormControl('', [Validators.required,]), // chercher une meilleure regex
-      latitudeFc : new FormControl('', [Validators.required]),
-      adresseFc : new FormControl('', [Validators.required]),
-      telephoneFc : new FormControl(''),
-      websiteFc : new FormControl(''),
-      surPlaceFc : new FormControl(''),
-      aEmporterFc : new FormControl(''),
-      accesPMRFc : new FormControl('')
-    })
   }
 
-  public onSubmit(): void {
-    console.log("value : ", this.signupForm.value);
-    console.log("form : ", this.signupForm);
-    const nomFc = this.signupForm.value['nomFc'];
-    const prixFc = this.signupForm.value['prixFc'];
-    const longitudeFc = this.signupForm.value['longitudeFc'];
-    const latitudeFc = this.signupForm.value['latitudeFc'];
-    const adresseFc = this.signupForm.value['adresseFc'];
-    const telephoneFc = this.signupForm.value['telephoneFc'];
-    const websiteFc = this.signupForm.value['websiteFc'];
-    const surPlaceFc = this.signupForm.value['surPlaceFc'];
-    const aEmporterFc = this.signupForm.value['aEmporterFc'];
-    const accesPMRFc = this.signupForm.value['accesPMRFc'];
-    
-    const restaurant: Restaurant = {
-      latitude: latitudeFc,
-      longitude: longitudeFc,
-      nom : nomFc,
-      prix: prixFc,
-      adresse : adresseFc,    
-      telephone : telephoneFc,
-      website : websiteFc,
-      surPlace : surPlaceFc,
-      aEmporter : aEmporterFc,
-      accesPMR : accesPMRFc
-    }
-    if( restaurant.latitude   !== '' && 
-        restaurant.longitude  !== '' &&
-        restaurant.nom        !== '' &&
-        restaurant.adresse    !== ''  ) {
-        this.apiBackService.addRestaurant(restaurant).subscribe(
-          resp=>
-          
-          this.router.navigate(['restaurants'])
-        );
-    }else{
-      console.log("hello");
-      
-      this.errorMessage = "Renseigner les champs obligatoires **";
-    }
-  
-  }
 
 }
