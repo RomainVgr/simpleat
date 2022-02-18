@@ -1,5 +1,5 @@
 <div class="container position-relative shadow p-0 mb-5 bg-body rounded rounded  m-5 rounded-top "
-  style="width: 22rem;">
+  style="width: 23rem;">
     <img class="card-img-top " src="assets/ImagesRestos/photo.jpg" alt="Card image cap">
       <div class="rond position-absolute">
         <app-icon class="heart"
@@ -20,7 +20,7 @@
              data-bs-parent="#accordionExample">
           <div class=" body accordion-body">
           <strong>This is the first item's accordion body.</strong>
-          <div class="star-icon d-flex justify-content-flex-start d-flex align-items-center pt-2 ">
+          <div class="star-icon d-flex justify-content-flex-start d-flex align-items-center pt-5 ">
               <ul class="avis-star d-flex flex-row  ps-1 pt-3 pe-0 pb-2 mb-0  ">
                 <li class="star pe-2"><i class="bi bi-star-fill"></i></li>
                 <li class="star pe-2"><i class="bi bi-star-fill"></i></li>
@@ -39,16 +39,17 @@
               <i class="fas fa-walking ps-2 pe-2" style="color:#a8a8a8"></i>
               <span class="categorie pe-2" style="font-weight: bold;">{{distance}}m</span>
 
-              <!-- <div class="d-inline-flex" *ngIf="restaurant.prix != null; else noPrice"> -->
+              <div class="d-inline-flex align-items-center" *ngIf="restaurant.prix != null; else noPrice">
                 <i class="fas fa-euro-sign ps-2 pe-2" style="color:#a8a8a8"></i>
                 <span class="prix" style="font-weight: bold;">{{ priceRef[restaurant.prix] }}</span>
-              <!-- </div> -->
+              </div>
 
-              <!-- <ng-template #noPrice>
+              <ng-template #noPrice>
+                <i class="fas fa-euro-sign ps-1 " style="color:#a8a8a8"></i>
                 <div class="d-inline-flex">
-                  <p class="description pt-3 ps-3 pe-1 " style="font-size:1.9vh ;color:#545454">{{ priceRef[0] }} </p>
+                  <p class="description pt-3 ps-1  " style="font-size:1.9vh ;color:#545454">{{ priceRef[0] }} </p>
                 </div>
-              </ng-template> -->
+              </ng-template>
            
             <div class="d-inline-flex" *ngIf="restaurant.website; else noWebsite">
               <p class="description pt-3 ps-2 pe-1"><i class="bi bi-globe2 ps-2 pe-2" style="color:#a8a8a8"></i>
@@ -57,9 +58,10 @@
             </div>
             <!-- le else de notre *ngIf plus haut-->
             <ng-template #noWebsite>
-              <div class="d-inline-flex">
-                <p class="description pt-3 ps-3 pe-1 " style="font-size:1.9vh ;color:#545454"> Pas de site Web </p>
-              </div>
+              <i class="bi bi-globe2 ps-3 pe-1" style="color:#a8a8a8"></i>
+              
+                <p class="d-inline-flex description pt-3 " style="font-size:1.9vh ;color:#545454">Indisponible </p>
+              
             </ng-template>
             <!--  ------------------------------------  -->
           </div>
@@ -77,7 +79,7 @@
                 </div>
                 <ng-template #noInfosSurPlace>
                   <span class="d-flex" style="color:#545454">Sur place :</span> 
-                  <p style="font-size:1.9vh ;color:#545454">Infos non disponible.</p>
+                  <p style="font-size:1.9vh ;color:#545454">Indisponible.</p>
                 </ng-template>
                 
                 <div class="d-inline-flex " *ngIf="restaurant.aEmporter != null else noInfosAEmporter">
@@ -89,7 +91,7 @@
                 </div>
                 <ng-template #noInfosAEmporter>
                   <span class="d-flex a-emporter pt-2 " style="color:#545454">A emporter :</span> 
-                  <p style="font-size:1.9vh ;color:#545454">Infos non disponible.</p>
+                  <p style="font-size:1.9vh ;color:#545454">Indisponible.</p>
                 </ng-template>
             </div>
           <div class="trait-rouge pt-3"></div>
@@ -104,7 +106,7 @@
             </div>
             <!-- le else de notre *ngIf plus haut-->
             <ng-template #noAccesPMR>
-             <p class=" ps-2"style="font-size:1.9vh ;color:#545454">Infos non disponible.</p>
+             <p class="ps-2"style="font-size:1.9vh ;color:#545454">Indisponible.</p>
             </ng-template>
             <!--  ------------------------------------  -->
           </div>
