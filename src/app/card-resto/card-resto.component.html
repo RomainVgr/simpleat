@@ -39,9 +39,16 @@
               <i class="fas fa-walking ps-2 pe-2" style="color:#a8a8a8"></i>
               <span class="categorie pe-2" style="font-weight: bold;">{{distance}}m</span>
 
+              <!-- <div class="d-inline-flex" *ngIf="restaurant.prix != null; else noPrice"> -->
+                <i class="fas fa-euro-sign ps-2 pe-2" style="color:#a8a8a8"></i>
+                <span class="prix" style="font-weight: bold;">{{ priceRef[restaurant.prix] }}</span>
+              <!-- </div> -->
 
-              <i class="fas fa-euro-sign ps-2 pe-2" style="color:#a8a8a8"></i>
-              <span class="prix" style="font-weight: bold;"></span>
+              <!-- <ng-template #noPrice>
+                <div class="d-inline-flex">
+                  <p class="description pt-3 ps-3 pe-1 " style="font-size:1.9vh ;color:#545454">{{ priceRef[0] }} </p>
+                </div>
+              </ng-template> -->
            
             <div class="d-inline-flex" *ngIf="restaurant.website; else noWebsite">
               <p class="description pt-3 ps-2 pe-1"><i class="bi bi-globe2 ps-2 pe-2" style="color:#a8a8a8"></i>
