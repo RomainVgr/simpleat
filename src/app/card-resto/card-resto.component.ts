@@ -13,7 +13,7 @@ export class CardRestoComponent implements OnInit {
   @Input() likeResto: any; 
   @Output() clickLike = new EventEmitter<boolean>();
   isLiked : boolean = false;
-  priceRef = ["Info indisponible","1-10€ ","11-20€","21-30€","31-40€"];
+  priceRef = ["Indisponible","1-10€ ","11-20€","21-30€","31-40€"];
   
   constructor(private apiBackService : ApiBackService) {
     this.distance = 0 ;
