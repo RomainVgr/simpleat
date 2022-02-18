@@ -40,7 +40,4 @@ export class CardRestoComponent implements OnInit {
     this.clickLike.emit(this.isLiked);
   }
 
-
-
-
 }
