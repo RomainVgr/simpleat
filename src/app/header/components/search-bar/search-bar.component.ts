@@ -36,8 +36,8 @@ export class SearchBarComponent implements OnInit {
       console.log(this.restauByName);
 
       this.apiBackService.setListRestau(this.restauByName, "filtres");
-      this.route.routeReuseStrategy.shouldReuseRoute= () => false;
-      this.route.onSameUrlNavigation = 'reload';
+      //this.route.routeReuseStrategy.shouldReuseRoute= () => false;
+      //this.route.onSameUrlNavigation = 'reload';
       this.route.navigate(['restaurants']);
     }
   }
