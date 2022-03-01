@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SigninComponent implements OnInit {
   public errorForm: boolean;
-  constructor(private authService: AuthService) {
+
+  constructor(private authService: AuthService , private router: Router) {
     this.errorForm = false;
    }
 
@@ -21,7 +23,9 @@ export class SigninComponent implements OnInit {
     const password = submittedForm.form.value['password'];
     if(email !== '' && password !== '') {
       this.authService.signin(email, password).subscribe(
-        resp => console.log('Component Page Signin: ', resp)
+        resp => {console.log('Component Page Signin ', resp)
+        this.router.navigate(['home'])
+      }
       )
     } else {
       // afficher une erreur à l'utilisateur

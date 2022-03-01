@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { FiltersPageComponent } from './pages/filters-page/filters-page.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +17,7 @@ const routes: Routes = [
     { path: 'favoris', component: FavorisUserComponent },
     { path: 'filtres', component: FiltersPageComponent },
     { path: 'Deconnexion', redirectTo: 'home'},
-    {path: 'restaurants',component: RestoPageComponent},
+    {path: 'restaurants', canActivate: [AuthGuard], component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},
     {path: 'signin', component: SigninComponent},
     {path: 'admin', component: AdminPageComponent},
