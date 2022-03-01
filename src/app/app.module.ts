@@ -9,7 +9,7 @@ import { CardCategoryComponent } from './card-category/card-category.component';
 import { CardRestoComponent } from './card-resto/card-resto.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListCategoriesComponent } from './pages/list-categories/list-categories.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { RestoPageComponent } from './pages/resto-page/resto-page.component';
@@ -20,6 +20,7 @@ import { IconComponent } from './filters/icon/icon.component';
 import { TemplatePageComponent } from './components/template-page/template-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AddRestauComponent } from './admin-component/add-restau/add-restau.component';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { AddRestauComponent } from './admin-component/add-restau/add-restau.comp
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
