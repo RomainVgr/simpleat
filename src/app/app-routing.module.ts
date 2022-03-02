@@ -20,7 +20,7 @@ const routes: Routes = [
     { path: 'Deconnexion', redirectTo: 'home'},
     {path: 'restaurants', canActivate: [AuthGuard], component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},
-      {path: 'admin', component: AdminPageComponent},
+    {path: 'admin', component: AdminPageComponent},
     {path: '**', redirectTo: 'page-not-found' }
 ];
 

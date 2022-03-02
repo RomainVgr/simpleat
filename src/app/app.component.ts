@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'simpleat';
   dontShow: boolean = false;
 
-  constructor(private router:Router, private apiBackService : ApiBackService){
+  constructor(public router:Router, private apiBackService : ApiBackService){
     this.router.events.subscribe(e=>{
       //console.log(e);
       if(e instanceof NavigationEnd){
