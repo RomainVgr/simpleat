@@ -23,7 +23,7 @@ export class TokenService {
     const token = this.getToken();
     if(token) {
       const decodedToken = jwt_decode<any>(token);
-      const userId = decodedToken.sub;
+      const userId = decodedToken.userId;
       console.log(userId);
       
       return userId;

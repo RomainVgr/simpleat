@@ -70,7 +70,7 @@ export class ApiBackService {
 
   }
 
-  getPersonneById(id: number | null) {
+  getPersonneById(id: any) {
     return this.httpClient.get<any[]>(`${environment.apiUrl}/user/${id}`);
   }
 }

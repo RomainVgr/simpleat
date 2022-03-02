@@ -11,11 +11,19 @@ export class FavorisUserComponent implements OnInit {
 
   personneConnectee : any;
 
-  constructor(private apiBackService : ApiBackService,private tokenService : TokenService) { }
+  constructor(private apiBackService : ApiBackService,private tokenService : TokenService) { 
+  }
 
   ngOnInit(): void {
 
-    this.personneConnectee = this.apiBackService.getPersonneById(this.tokenService.getCurrentUserId());
+    
+    this.apiBackService.getPersonneById(this.tokenService.getCurrentUserId()).subscribe(
+      resp =>{
+        console.log(resp);
+        
+        this.personneConnectee = resp;
+      }
+    );
     console.log(this.personneConnectee);
     
 
