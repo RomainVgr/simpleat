@@ -9,15 +9,20 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class FavorisUserComponent implements OnInit {
 
-  personneConnectee : any;
 
-  constructor(private apiBackService : ApiBackService,private tokenService : TokenService) { }
+  personneConnectee : any;
+  listRestoFav: any;
+
+  constructor(private apiBackService : ApiBackService,private tokenService : TokenService) { 
+
+  }
 
   ngOnInit(): void {
 
     this.personneConnectee = this.apiBackService.getPersonneById(this.tokenService.getCurrentUserId());
     console.log(this.personneConnectee);
     
+
 
   }
 
