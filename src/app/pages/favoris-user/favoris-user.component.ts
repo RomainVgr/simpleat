@@ -14,11 +14,6 @@ export class FavorisUserComponent implements OnInit {
   listRestoFav: any;
 
   constructor(private apiBackService : ApiBackService,private tokenService : TokenService) { 
-
-<<<<<<< HEAD
-=======
-  constructor(private apiBackService : ApiBackService,private tokenService : TokenService) { 
->>>>>>> dev
   }
 
   ngOnInit(): void {
@@ -38,3 +33,4 @@ export class FavorisUserComponent implements OnInit {
   }
 
 }
+
