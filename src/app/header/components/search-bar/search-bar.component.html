@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light p-0">
-  <div class="container-fluid d-flex align-items-center pt-3">
-    <div class="logo ps-4">
+  <div  *ngIf="route.url != '/signin'" class="container-fluid d-flex align-items-center pt-3">
+    <div *ngIf="route.url != '/signin'" class="logo ps-4">
       <img src="assets/images-header/LOGO2.png" alt="logo">
     </div>
       <form style="width: 30%;" class="d-flex align-items-center pe-2 pt-2">
