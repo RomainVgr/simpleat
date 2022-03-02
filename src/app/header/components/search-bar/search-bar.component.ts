@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Restaurant } from 'src/app/pages/models/restaurant';
 import { RestoPageComponent } from 'src/app/pages/resto-page/resto-page.component';
 import { ApiBackService } from 'src/app/services/api-back.service';
 
@@ -10,11 +11,17 @@ import { ApiBackService } from 'src/app/services/api-back.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  searchText = new EventEmitter();
   listRestau: any[];
   restauByName: any[];
+  @Output() resultSearch = new EventEmitter<Restaurant[]>();
 
-  constructor(private apiBackService: ApiBackService, public  route: Router) {
+
+
+  constructor(private apiBackService: ApiBackService,
+    private route: Router,
+    private activatedRoute : ActivatedRoute) {
+
+      
 
     this.listRestau = [];
     this.restauByName = [];
@@ -33,12 +40,19 @@ export class SearchBarComponent implements OnInit {
 
       this.restauByName = this.restauByName.filter((restau: any) =>
         restau.nom.toLowerCase().includes(search.toLowerCase()));
-      console.log(this.restauByName);
+
+        // Composant search-bar utilisé dans la page admin
+      if(this.activatedRoute.snapshot.routeConfig?.path === "admin"){
+
+        this.resultSearch.emit(this.restauByName);
+
+      }else{ // la search bar utilisée dans la nav-bar pour trouver un restau
 
       this.apiBackService.setListRestau(this.restauByName, "filtres");
       //this.route.routeReuseStrategy.shouldReuseRoute= () => false;
-      //this.route.onSameUrlNavigation = 'reload';
+      // this.route.onSameUrlNavigation = 'reload';
       this.route.navigate(['restaurants']);
+      }
 
   
     }

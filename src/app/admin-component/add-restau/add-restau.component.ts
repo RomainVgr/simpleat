@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Restaurant } from 'src/app/pages/models/restaurant';
 import { ApiBackService } from 'src/app/services/api-back.service';
 
@@ -15,12 +16,18 @@ export class AddRestauComponent implements OnInit {
 
   public signupForm: FormGroup;
   public errorMessage ?: string;
+  public listCategories : any[];
+  public expanded = false;
 
   constructor( private router: Router, private apiBackService : ApiBackService) {
     this.signupForm = new FormGroup({});
+    this.listCategories = [];
   }
 
   ngOnInit(): void {
+    
+    this.getCategories();
+
     this.signupForm = new FormGroup({
       nomFc : new FormControl('', [Validators.required]),
       prixFc : new FormControl(''),
@@ -31,8 +38,19 @@ export class AddRestauComponent implements OnInit {
       websiteFc : new FormControl('',[Validators.pattern("/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/")]),
       surPlaceFc : new FormControl(''),
       aEmporterFc : new FormControl(''),
-      accesPMRFc : new FormControl('')
+      accesPMRFc : new FormControl(''),
+      // typerestausFc : new FormControl('')
     })
+  }
+
+  public getCategories() : void{
+    this.apiBackService.getCategories().subscribe((listCategories: any[]) => {
+      // console.log(listCategories);
+
+      this.listCategories = listCategories;
+
+    }); 
+
   }
 
   public onSubmit(): void {
@@ -48,6 +66,7 @@ export class AddRestauComponent implements OnInit {
     const surPlaceFc = this.signupForm.value['surPlaceFc'];
     const aEmporterFc = this.signupForm.value['aEmporterFc'];
     const accesPMRFc = this.signupForm.value['accesPMRFc'];
+    // const typerestausFc = this.signupForm.value['typerestausFc'];
     
     const restaurant: Restaurant = {
       latitude: latitudeFc,
@@ -59,8 +78,10 @@ export class AddRestauComponent implements OnInit {
       website : websiteFc,
       surPlace : surPlaceFc,
       aEmporter : aEmporterFc,
-      accesPMR : accesPMRFc
+      accesPMR : accesPMRFc,
+      // typerestaus : typerestausFc
     }
+
     if( restaurant.latitude   !== '' && 
         restaurant.longitude  !== '' &&
         restaurant.nom        !== '' &&
