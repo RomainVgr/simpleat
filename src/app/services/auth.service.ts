@@ -45,6 +45,7 @@ export class AuthService {
 
      return this.http.post(`${this.apiUrl}/signin`, body).pipe(
        map((x: any) => {
+        console.log(x);
         
          console.log('Service : ', x.token);
          // Modification à faire ici

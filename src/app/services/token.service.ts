@@ -24,6 +24,8 @@ export class TokenService {
     if(token) {
       const decodedToken = jwt_decode<any>(token);
       const userId = decodedToken.sub;
+      console.log(userId);
+      
       return userId;
     } else {
       return null;
