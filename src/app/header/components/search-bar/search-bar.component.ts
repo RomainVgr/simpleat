@@ -14,7 +14,7 @@ export class SearchBarComponent implements OnInit {
   listRestau: any[];
   restauByName: any[];
 
-  constructor(private apiBackService: ApiBackService, private route: Router) {
+  constructor(private apiBackService: ApiBackService, public  route: Router) {
 
     this.listRestau = [];
     this.restauByName = [];
@@ -39,5 +39,7 @@ export class SearchBarComponent implements OnInit {
       //this.route.routeReuseStrategy.shouldReuseRoute= () => false;
       //this.route.onSameUrlNavigation = 'reload';
       this.route.navigate(['restaurants']);
+
+  
     }
   }

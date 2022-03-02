@@ -11,12 +11,12 @@ export class AppComponent {
   title = 'simpleat';
   dontShow: boolean = false;
 
-  constructor(private router:Router, private apiBackService : ApiBackService){
+  constructor(public router:Router, private apiBackService : ApiBackService){
     this.router.events.subscribe(e=>{
       //console.log(e);
       if(e instanceof NavigationEnd){
         console.log(e.url)
-        if (e.url == "/signin") {
+        if (e.url == "/") {
           this.dontShow = false;
         } else {
           this.dontShow = true;

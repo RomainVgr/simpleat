@@ -11,7 +11,8 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'signin', pathMatch: 'full' },
+    {path: 'signin', component: SigninComponent},
     { path: 'home', component: HomePageComponent },
     { path: 'categories', component: ListCategoriesComponent },
     { path: 'favoris', component: FavorisUserComponent },
@@ -19,7 +20,6 @@ const routes: Routes = [
     { path: 'Deconnexion', redirectTo: 'home'},
     {path: 'restaurants', canActivate: [AuthGuard], component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},
-    {path: 'signin', component: SigninComponent},
     {path: 'admin', component: AdminPageComponent},
     {path: '**', redirectTo: 'page-not-found' }
 ];
