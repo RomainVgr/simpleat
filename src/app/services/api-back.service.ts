@@ -8,14 +8,14 @@ import { Restaurant } from '../pages/models/restaurant';
   providedIn: 'root'
 })
 export class ApiBackService {
-  
-  public restoByCat : Observable<any[]> = of([]);
-  restoLiked$ = new Subject<any>();
-  public restoFilter : any[];
-  public routeParam ?: string;
-  @Input() restaurant : any;
 
-  constructor(private httpClient: HttpClient) { 
+  public restoByCat: Observable<any[]> = of([]);
+  restoLiked$ = new Subject<any>();
+  public restoFilter: any[];
+  public routeParam?: string;
+  @Input() restaurant: any;
+
+  constructor(private httpClient: HttpClient) {
     this.restoFilter = [];
     this.routeParam = "";
   }
@@ -24,49 +24,53 @@ export class ApiBackService {
     return this.httpClient.get<any[]>(`${environment.apiUrl}/restaurants`);
   }
 
-  getRestaurantsByCateg(id : number, routeParam ?: string ): void {
+  getRestaurantsByCateg(id: number, routeParam?: string): void {
     this.restoByCat = this.httpClient.get<any[]>(`${environment.apiUrl}/restaurantbytype/${id}`);
     this.routeParam = routeParam;
   }
 
-  getCategories(): Observable<any[]>{
+  getCategories(): Observable<any[]> {
     return this.httpClient.get<any[]>(`${environment.apiUrl}/types`);
   }
 
-  setListRestau(listRestau : any[], routeParam ?: string ) : void{
+  setListRestau(listRestau: any[], routeParam?: string): void {
 
-    this.restoFilter =  listRestau;
+    this.restoFilter = listRestau;
     this.routeParam = routeParam;
-    
-    }
 
-    setDistance(lat1 : number , lon1 : number, lat2 : number, lon2 : number){
+  }
 
-        let R = 6371; // Radius of the earth in km
-        let dLat = this.deg2rad(lat2-lat1);  // deg2rad below
-        let dLon = this.deg2rad(lon2-lon1); 
-        let a = 
-          Math.sin(dLat/2) * Math.sin(dLat/2) +
-          Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
-          Math.sin(dLon/2) * Math.sin(dLon/2)
-          ; 
-        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-        let d = R * c * 1000; // Distance in meters
-        return d;
-    }
-      
-      deg2rad(deg : number) {
-        return deg * (Math.PI/180)
-      }
-    
-  addRestaurant( newRestau : Restaurant) : Observable<any>{
+  setDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
+
+    let R = 6371; // Radius of the earth in km
+    let dLat = this.deg2rad(lat2 - lat1);  // deg2rad below
+    let dLon = this.deg2rad(lon2 - lon1);
+    let a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2)
+      ;
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    let d = R * c * 1000; // Distance in meters
+    return d;
+  }
+
+  deg2rad(deg: number) {
+    return deg * (Math.PI / 180)
+  }
+
+  addRestaurant(newRestau: Restaurant): Observable<any> {
     return this.httpClient.post<any[]>(`${environment.apiUrl}/add-restaurant`, newRestau);
-    
+
   }
 
-  deleteRestau( idRestau : number | undefined) : Observable<any>{
-      
+  deleteRestau(idRestau: number | undefined): Observable<any> {
+
     return this.httpClient.delete<Restaurant>(`${environment.apiUrl}/delete-restaurant/${idRestau}`);
+
   }
 
+  getPersonneById(id: number | null) {
+    return this.httpClient.get<any[]>(`${environment.apiUrl}/user/${id}`);
+  }
 }
