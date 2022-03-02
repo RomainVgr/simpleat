@@ -1,0 +1,12 @@
+<h2>Modifier/Supprimer un restaurant</h2>
+<app-search-bar (resultSearch)="saveRestauList($event)"></app-search-bar>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let restau of restauList" >
+        <div>
+        {{restau.nom}}
+    </div>
+    <div>
+        <button class="btn btn-danger" type="button" (click)="deleteRestau(restau.id)"><i class="bi bi-trash"></i></button>
+    </div>
+    </li>
+</ul>

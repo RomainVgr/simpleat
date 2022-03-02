@@ -64,4 +64,9 @@ export class ApiBackService {
     
   }
 
+  deleteRestau( idRestau : number | undefined) : Observable<any>{
+      
+    return this.httpClient.delete<Restaurant>(`${environment.apiUrl}/delete-restaurant/${idRestau}`);
+  }
+
 }

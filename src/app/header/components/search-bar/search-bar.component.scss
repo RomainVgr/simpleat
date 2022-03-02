@@ -1,35 +1,3 @@
-.container-fluid
-{
-  padding-top: 2%;
-  width : 100%;
-  margin: auto;
-  padding-bottom: 0,5%;
-  padding-left: 0;
-  padding-right: 0;
-  max-height: 20%;
-
-}
-
-.trait{
-
-  width: 100%;
-  height: 30px;
-  border-bottom: 2px solid #CE0000;
-  position: relative;
-
-}
-
-p{
-  background-color: white;
-  position: absolute;
-  top: 15px;
-  left: 68px;
-  padding : 0 10px 0 10px;
-  color: grey;
-}
-
-
-
 input[type="search"], textarea{
   background-color: #edf5f1;
 }

@@ -20,6 +20,8 @@ import { IconComponent } from './filters/icon/icon.component';
 import { TemplatePageComponent } from './components/template-page/template-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AddRestauComponent } from './admin-component/add-restau/add-restau.component';
+import { UpdateDelRestauComponent } from './admin-component/update-del-restau/update-del-restau.component';
+import { HeaderLogoComponent } from './header/components/header-logo/header-logo.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { AddRestauComponent } from './admin-component/add-restau/add-restau.comp
     SigninComponent,
     TemplatePageComponent,
     AdminPageComponent,
-    AddRestauComponent
+    AddRestauComponent,
+    UpdateDelRestauComponent,
+    HeaderLogoComponent
   ],
   imports: [
     BrowserModule,
