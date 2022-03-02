@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+  tokenKey = environment.tokenKey;
 
-  constructor() { }
+  constructor( private tokenService : TokenService,  public route: Router) { }
 
   ngOnInit(): void {
   }
+
+  onCloseSession() : void {
+this.tokenService.destroyToken();
+this.route.navigate(['signin']);
+  }
+
 
 }

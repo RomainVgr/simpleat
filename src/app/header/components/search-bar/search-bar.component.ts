@@ -15,9 +15,13 @@ export class SearchBarComponent implements OnInit {
   restauByName: any[];
   @Output() resultSearch = new EventEmitter<Restaurant[]>();
 
+
+
   constructor(private apiBackService: ApiBackService,
     private route: Router,
     private activatedRoute : ActivatedRoute) {
+
+      
 
     this.listRestau = [];
     this.restauByName = [];
@@ -49,5 +53,7 @@ export class SearchBarComponent implements OnInit {
       // this.route.onSameUrlNavigation = 'reload';
       this.route.navigate(['restaurants']);
       }
+
+  
     }
   }
