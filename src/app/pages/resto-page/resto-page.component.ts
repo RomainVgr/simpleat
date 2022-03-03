@@ -20,26 +20,27 @@ export class RestoPageComponent implements OnInit {
               private tokenService : TokenService) { 
     this.listRestaurants = [];
     this.restaurantPref = [];
+    this.beforeRoute = this.apiBackService.routeParam;
   }
 
   ngOnInit(): void {
 
-    this.beforeRoute = this.apiBackService.routeParam;
+    this.restauLiked();
         
-    // arrivée sur la restau-page depuis filtres ou home(catégories) : appel a une méthode différente du service
-    if(this.apiBackService.routeParam === "filtres"){
-      this.listRestaurants = this.apiBackService.restoFilter;
+    // // arrivée sur la restau-page depuis filtres ou home(catégories) : appel a une méthode différente du service
+    // if(this.apiBackService.routeParam === "filtres"){
+    //   this.listRestaurants = this.apiBackService.restoFilter;
 
-    }else if(this.apiBackService.routeParam === "categories"){
-    this.apiBackService.restoByCat.subscribe((restaurants: any[]) => {
-      this.listRestaurants = restaurants;
-    });
-    }else{ // si on arrive sur l'url /restaurants directement = tous les restau affichés
+    // }else if(this.apiBackService.routeParam === "categories"){
+    // this.apiBackService.restoByCat.subscribe((restaurants: any[]) => {
+    //   this.listRestaurants = restaurants;
+    // });
+    // }else{ // si on arrive sur l'url /restaurants directement = tous les restau affichés
       
 
-      this.restauLiked();
+    //   this.restauLiked();
 
-    }
+    // }
     
   }
 
@@ -50,14 +51,23 @@ export class RestoPageComponent implements OnInit {
       
   }
 
+  
   restauLiked(){
 
     forkJoin({
       restaurants: this.apiBackService.getRestaurants(),
-      user: this.apiBackService.getPersonneById(this.tokenService.getCurrentUserId())
-    }).subscribe(({restaurants, user}) => {
-    
-        this.listRestaurants = restaurants;
+      user: this.apiBackService.getPersonneById(this.tokenService.getCurrentUserId()),
+      restauByCat : this.apiBackService.restoByCat
+    }).subscribe(({restaurants, user, restauByCat}) => {
+
+
+      if(this.beforeRoute === "filtres"){
+        this.listRestaurants = this.apiBackService.restoFilter;
+      }else if(this.beforeRoute === "categories" ){
+          this.listRestaurants = restauByCat
+        }else{
+          this.listRestaurants = restaurants;
+        }
 
         this.listPref = user.preference;
 
