@@ -81,7 +81,6 @@ export class RestoPageComponent implements OnInit {
           
           
           if(listRestauIdLike.includes(restau.id))
-          
           //console.log(restau);
             restau.restauLike = true;
         });
