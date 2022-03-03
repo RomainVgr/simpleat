@@ -1,8 +1,5 @@
-<h2 class="titre ">Mes favoris :</h2>
-<div class="separation"></div>
-<div class="parent d-flex justify-content-center align-items-center">
-    <div class="card">
-        <h3>Mon top</h3>
+<app-template-page [title]="'Favoris :'">
+    <div *ngFor="let pref of restaurantData">
+        <app-card-resto [restaurant]= "pref"></app-card-resto>
     </div>
-    
-</div>
+</app-template-page>

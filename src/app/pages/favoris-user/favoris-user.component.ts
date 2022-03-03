@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { ApiBackService } from 'src/app/services/api-back.service';
 import { TokenService } from 'src/app/services/token.service';
 
@@ -9,23 +10,40 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class FavorisUserComponent implements OnInit {
 
-  personneConnectee : any;
 
-  constructor(private apiBackService : ApiBackService,private tokenService : TokenService) { 
+  personneConnectee : any;
+  restaurantData : any[];
+  public listRestaurants : any;
+  public listPref : any;
+  public restaurantPref : any;
+
+  constructor(private apiBackService : ApiBackService, private tokenService : TokenService) { 
+
+this.restaurantData = []
   }
 
   ngOnInit(): void {
 
-    
     this.apiBackService.getPersonneById(this.tokenService.getCurrentUserId()).subscribe(
-      resp =>{
-        console.log(resp);
+      user =>{
+
+        this.listPref = user.preference;
         
-        this.personneConnectee = resp;
+         console.log(this.listPref);
+
+         for (let i = 0; i < this.listPref.length; i++) {
+         this.restaurantData.push(this.listPref[i]['preferencePK']['restau']);
+         
+        }
+
+        this.restaurantData.forEach((restau: any) =>  {
+          //console.log(restau);
+            restau.restauLike = true;
+        });
+
       }
     );
-    console.log(this.personneConnectee);
-    
+
 
   }
 
