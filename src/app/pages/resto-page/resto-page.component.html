@@ -1,4 +1,4 @@
-<app-template-page [title]="'Résultats :'">
+<app-template-page [title]="'Restaurants :'">
     <div *ngFor="let restaurantData of listRestaurants">
         <app-card-resto [restaurant]= "restaurantData" (clickLike)="onEventLike()"></app-card-resto>
     </div>

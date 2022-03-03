@@ -35,14 +35,12 @@ export class ApiBackService {
   }
 
   setListRestau(listRestau: any[], routeParam?: string): void {
-
     this.restoFilter = listRestau;
     this.routeParam = routeParam;
 
   }
 
   setDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
-
     let R = 6371; // Radius of the earth in km
     let dLat = this.deg2rad(lat2 - lat1);  // deg2rad below
     let dLon = this.deg2rad(lon2 - lon1);
@@ -66,7 +64,6 @@ export class ApiBackService {
   }
 
   deleteRestau(idRestau: number | undefined): Observable<any> {
-
     return this.httpClient.delete<Restaurant>(`${environment.apiUrl}/delete-restaurant/${idRestau}`);
 
   }
