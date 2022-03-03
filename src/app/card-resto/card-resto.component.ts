@@ -35,8 +35,8 @@ export class CardRestoComponent implements OnInit {
   }
   onClickLike() {
     console.log('click');
-    //this.isLiked = !this.isLiked;
-    this.clickLike.emit(this.isLiked);
+    this.restaurant.restauLike = !this.restaurant.restauLike;
+    this.clickLike.emit(this.restaurant.restauLike);
   }
 
 }

@@ -45,9 +45,8 @@ export class RestoPageComponent implements OnInit {
   }
 
   onEventLike(){
-      this.apiBackService.restoLiked$.next('');
+      this.apiBackService.restoLiked$.next(true);
       console.log(this.apiBackService.restoLiked$);
-      
       
   }
 

@@ -69,4 +69,5 @@ export class ApiBackService {
   getPersonneById(id: any) {
     return this.httpClient.get<User>(`${environment.apiUrl}/user/${id}`);
   }
+
 }
