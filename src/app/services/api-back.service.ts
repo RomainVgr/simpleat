@@ -3,6 +3,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Restaurant } from '../pages/models/restaurant';
+import { User } from '../pages/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +67,6 @@ export class ApiBackService {
   }
 
   getPersonneById(id: any) {
-    return this.httpClient.get<any>(`${environment.apiUrl}/user/${id}`);
+    return this.httpClient.get<User>(`${environment.apiUrl}/user/${id}`);
   }
 }

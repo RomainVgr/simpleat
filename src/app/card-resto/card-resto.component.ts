@@ -29,11 +29,13 @@ export class CardRestoComponent implements OnInit {
       this.restaurant.latitude,
       this.restaurant.longitude)
       );
+
+      
  
   }
   onClickLike() {
     console.log('click');
-    this.isLiked = !this.isLiked;
+    //this.isLiked = !this.isLiked;
     this.clickLike.emit(this.isLiked);
   }
 

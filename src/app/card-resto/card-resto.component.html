@@ -3,7 +3,7 @@
     <img class="card-img-top " src="assets/ImagesRestos/photo.jpg" alt="Card image cap">
       <div class="rond position-absolute">
         <app-icon class="heart"
-        [iconName]="isLiked ? 'heart-fill' : 'heart'"
+        [iconName]="restaurant.restauLike ? 'heart-fill' : 'heart'"
         [iconColor]="'#e35d6a'"
         (click)="onClickLike()"></app-icon></div>
       <div class="card-body rounded-bottom">

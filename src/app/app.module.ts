@@ -47,7 +47,6 @@ import { FavorisUserComponent } from './pages/favoris-user/favoris-user.componen
     UpdateDelRestauComponent,
     HeaderLogoComponent,
     FavorisUserComponent
-
   ],
   imports: [
     BrowserModule,
