@@ -9,15 +9,21 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  tokenKey = environment.tokenKey;
 
-  constructor( private tokenService : TokenService,  public route: Router) { }
+  private tokenKey: string;
+
+
+  constructor( private tokenService : TokenService,  public route: Router) {
+
+    this.tokenKey = environment.tokenKey;
+   }
 
   ngOnInit(): void {
   }
 
   onCloseSession() : void {
-this.tokenService.destroyToken();
+
+this.tokenService.destroyToken(this.tokenKey);
 this.route.navigate(['signin']);
   }
 

@@ -33,7 +33,7 @@ export class TokenService {
   }
 
 
-  public destroyToken(): void { 
-    localStorage.removeItem(this.tokenKey);
+  public destroyToken(token : any) { 
+    localStorage.removeItem(token);
   }
 }
