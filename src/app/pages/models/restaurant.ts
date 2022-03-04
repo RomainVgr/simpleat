@@ -10,5 +10,5 @@ export interface Restaurant {
     aEmporter?: boolean;
     accesPMR?: boolean;
     surPlace?: boolean;
-    typerestaus ?: any[];
+    typerestaus ?: [{id : number}];
 }
