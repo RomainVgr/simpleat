@@ -9,15 +9,28 @@
                                     'is-invalid':  signupForm.controls['nomFc'].touched && !signupForm.controls['nomFc'].valid}">
                 <label for="floatingInputNom">Nom **</label>
             </div>
+
             <!-- <div class="form-floating">
                 <select type="number" class="form-control" id="floatingInputCategories" placeholder="" name="categories"
                     formControlName="typerestausFc">
                     <option value=null></option>
                     <option *ngFor="let category of listCategories" value={{category.id}}>{{category.libelle}}</option>
-                    
                 </select>
                 <label for="floatingInputlastName">Categorie</label>
             </div> -->
+            <ul>
+                <div class="form-floating">
+                    <li *ngFor="let category of listCategories$ | async ">
+                        <input type="checkbox" (change)="onCheckChange($event)" [value]="category.id"> {{
+                        category.libelle }}
+                    </li>
+                </div>
+            </ul>
+            <!-- <div class="form-group form-check" *ngFor="let category of listCategories$ | async">
+                <input type="checkbox" formControlName="typerestausFc" id="acceptTerms" class="form-check-input" />
+                <label for="acceptTerms" class="form-check-label">{{ category.libelle }}</label>
+            </div> -->
+
             <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInputAdresse" placeholder="" name="adresse"
                     formControlName="adresseFc"
