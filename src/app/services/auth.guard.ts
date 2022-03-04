@@ -3,13 +3,15 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import jwt_decode from 'jwt-decode';
+import { ApiBackService } from './api-back.service';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
   private tokenKey: string;
-  constructor(private router: Router){
+  constructor(private router: Router, private tokenService : TokenService){
     this.tokenKey = environment.tokenKey;
   }
 
@@ -29,6 +31,7 @@ export class AuthGuard implements CanActivate {
           const dateExp = new Date(decodedToken.exp * 1000);
           if(new Date() >= dateExp) {
             // le token a expiré, je n'autorise pas l'accès
+            this.tokenService.destroyToken();
             this.router.navigate(['signin']);
             return false;
           }
