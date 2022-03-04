@@ -1,8 +1,10 @@
 <app-template-page [title]="'Restaurants :'">
+    <div class="div-search d-flex justify-content-center">
+        <div class="search-restau">
+            <app-search-bar (resultSearch)="saveRestauList($event)"></app-search-bar>
+        </div>
+    </div>
     <div *ngFor="let restaurantData of listRestaurants">
-        <app-card-resto [restaurant]= "restaurantData" (clickLike)="onEventLike()"></app-card-resto>
+        <app-card-resto [restaurant]="restaurantData" (clickLike)="onEventLike()"></app-card-resto>
     </div>
 </app-template-page>
-
-
-

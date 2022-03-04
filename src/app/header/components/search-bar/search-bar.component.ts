@@ -42,7 +42,8 @@ export class SearchBarComponent implements OnInit {
         restau.nom.toLowerCase().includes(search.toLowerCase()));
 
         // Composant search-bar utilisé dans la page admin
-      if(this.activatedRoute.snapshot.routeConfig?.path === "admin"){
+      if(this.activatedRoute.snapshot.routeConfig?.path === "admin" || 
+      this.activatedRoute.snapshot.routeConfig?.path === "restaurants"){
 
         this.resultSearch.emit(this.restauByName);
 

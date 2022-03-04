@@ -4,7 +4,7 @@
             <img src="assets/images-header/LOGO2.png" alt="logo">
         </div>
 
-        <app-search-bar></app-search-bar>
+        <app-search-bar  *ngIf="router.url != '/restaurants' && router.url != '/admin'"></app-search-bar>
         
         <div class="trait">
             <p>LE BON PLAN POUR MANGER</p>

@@ -50,6 +50,11 @@ export class RestoPageComponent implements OnInit {
       
   }
 
+  saveRestauList(event : any){
+    console.log(event);
+    this.listRestaurants = event;
+  }
+
   
   restauLiked(){
 
