@@ -18,18 +18,12 @@ export class AuthService {
     this.tokenKey = environment.tokenKey;
    }
 
-  //  signup(): Observable<any> {
-  //   //  const body = {
-  //   //     firstName: firstName,
-  //   //     lastName: lastName,
-  //   //     email: email,
-  //   //     password: password
-  //   //  };
+   signup(newUser: User): Observable<any> {
 
-  //    console.log("Mon nouvel utilisateur : ", newUser);
+      console.log("Mon nouvel utilisateur : ", newUser);
+      return this.http.post(`${this.apiUrl}/signup`, newUser);
+   }
 
-  //    return this.http.post(`${this.apiUrl}/register`, newUser);
-  //  }
 
    signin(email: string, password: string): Observable<any> {
      const body = {
@@ -39,9 +33,7 @@ export class AuthService {
 
      console.log("Mon body : ", body);
 
-     // Modifier cette partie ci-dessous :
-     // - pour pouvoir stocker dans le localstorage notre accesstoken
-     // - Sous la clé "TOKEN-SIMPLEAT"
+
 
      return this.http.post(`${this.apiUrl}/signin`, body).pipe(
        map((x: any) => {
@@ -54,16 +46,5 @@ export class AuthService {
         })
      );
    }
-
-  //  forgotPassword(email: string, password: string): Observable<any> {
-  //    const body = {
-  //      email: email,
-  //      password: password
-  //    };
-
-  //    console.log("Mon body : ", body);
-
-  //    return this.http.post(`${this.apiUrl}/forgot-psw`, body);
-  //  }
 
 }
