@@ -13,7 +13,7 @@ import { AuthGuard } from './services/auth.guard';
 import { PageAccountComponent } from './pages/page-account/page-account.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'signin', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     {path: 'signin', component: SigninComponent},
     {path: 'signup', component: SignupComponent},
     { path: 'home', component: HomePageComponent },

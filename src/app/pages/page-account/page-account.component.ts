@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { RoleList } from '../models/roleList';
 import { User } from '../models/user';
 
 @Component({
@@ -30,7 +31,8 @@ export class PageAccountComponent implements OnInit {
     return this.fb.group({
       firstName: [user ? user.prenom : ''],
       lastName: [user ? user.nom : ''],
-      email: [user ? user.email : '']
+      email: [user ? user.email : ''],
+      RoleList: [user ? user.roleList : '']
     })
   }
 }

@@ -22,9 +22,7 @@ export class AuthService {
    }
 
    signup(newUser: User): Observable<any> {
-
-      console.log("Mon nouvel utilisateur : ", newUser);
-      return this.http.post(`${this.apiUrl}/signup`, newUser);
+    return this.http.post(`${this.apiUrl}/signup`, newUser);
    }
 
 
@@ -33,10 +31,6 @@ export class AuthService {
        email: email,
        password: password
      };
-
-     console.log("Mon body : ", body);
-
-
 
      return this.http.post(`${this.apiUrl}/signin`, body).pipe(
        map((x: any) => {
@@ -56,9 +50,6 @@ export class AuthService {
       const decodedToken = jwt_decode<any>(token);
       const userId = decodedToken.userId;
       return this.http.get<User>(`${this.apiUrl}/user/${userId}`);
-    } else {
-      this.router.navigate(['signin']);
     }
    }
-
 }
