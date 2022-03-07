@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Restaurant } from 'src/app/pages/models/restaurant';
 import { ApiBackService } from 'src/app/services/api-back.service';
 
@@ -10,14 +10,13 @@ import { ApiBackService } from 'src/app/services/api-back.service';
 export class UpdateDelRestauComponent implements OnInit {
 
   restauList : Restaurant[];
+  @Output() idRestauAModif = new EventEmitter<number>();
 
   constructor(private apiBackService : ApiBackService) {
     this.restauList = [];
    }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   
   saveRestauList(event : any){
@@ -28,11 +27,12 @@ export class UpdateDelRestauComponent implements OnInit {
   deleteRestau(idRestau : number | undefined){
     this.apiBackService.deleteRestau(idRestau).subscribe( 
       resp =>{
-
-      
       this.restauList = this.restauList.filter(restaus => restaus.id != idRestau)
-      
     });
+  }
+
+  modifRestau(idRestau : number | undefined){
+    this.idRestauAModif.emit(idRestau);
   }
 
 }

@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate {
           const dateExp = new Date(decodedToken.exp * 1000);
           if(new Date() >= dateExp) {
             // le token a expiré, je n'autorise pas l'accès
-            this.tokenService.destroyToken();
+            this.tokenService.destroyToken(this.tokenKey);
             this.router.navigate(['signin']);
             return false;
           }

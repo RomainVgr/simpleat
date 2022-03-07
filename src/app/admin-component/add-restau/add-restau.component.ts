@@ -15,41 +15,33 @@ export class AddRestauComponent implements OnInit {
 
 
   public signupForm: FormGroup;
-  public errorMessage ?: string;
-  public listCategories : any[];
+  public errorMessage?: string;
+  public listCategories$: Observable<any[]>;
   public expanded = false;
 
-  constructor( private router: Router, private apiBackService : ApiBackService) {
+  constructor(private router: Router, private apiBackService: ApiBackService) {
     this.signupForm = new FormGroup({});
-    this.listCategories = [];
+    this.listCategories$ = this.getCategories();
   }
 
   ngOnInit(): void {
-    
-    this.getCategories();
-
     this.signupForm = new FormGroup({
-      nomFc : new FormControl('', [Validators.required]),
-      prixFc : new FormControl(''),
-      longitudeFc : new FormControl('', [Validators.required,]), // chercher une meilleure regex
-      latitudeFc : new FormControl('', [Validators.required]),
-      adresseFc : new FormControl('', [Validators.required]),
-      telephoneFc : new FormControl(''),
-      websiteFc : new FormControl('',[Validators.pattern("/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/")]),
-      surPlaceFc : new FormControl(''),
-      aEmporterFc : new FormControl(''),
-      accesPMRFc : new FormControl(''),
-      // typerestausFc : new FormControl('')
+      nomFc: new FormControl('', [Validators.required]),
+      prixFc: new FormControl(''),
+      longitudeFc: new FormControl('', [Validators.required,]), // chercher une meilleure regex
+      latitudeFc: new FormControl('', [Validators.required]),
+      adresseFc: new FormControl('', [Validators.required]),
+      telephoneFc: new FormControl(''),
+      websiteFc: new FormControl('', [Validators.pattern("/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/")]),
+      surPlaceFc: new FormControl(''),
+      aEmporterFc: new FormControl(''),
+      accesPMRFc: new FormControl(''),
+      typerestausFc: new FormArray([])
     })
   }
 
-  public getCategories() : void{
-    this.apiBackService.getCategories().subscribe((listCategories: any[]) => {
-      // console.log(listCategories);
-
-      this.listCategories = listCategories;
-
-    }); 
+  public getCategories(): Observable<any[]> {
+    return this.apiBackService.getCategories();
 
   }
 
@@ -66,37 +58,63 @@ export class AddRestauComponent implements OnInit {
     const surPlaceFc = this.signupForm.value['surPlaceFc'];
     const aEmporterFc = this.signupForm.value['aEmporterFc'];
     const accesPMRFc = this.signupForm.value['accesPMRFc'];
-    // const typerestausFc = this.signupForm.value['typerestausFc'];
+    const typerestausFc = this.signupForm.value['typerestausFc'];
+
+    console.log(typerestausFc);
     
+
     const restaurant: Restaurant = {
       latitude: latitudeFc,
       longitude: longitudeFc,
-      nom : nomFc,
+      nom: nomFc,
       prix: prixFc,
-      adresse : adresseFc,    
-      telephone : telephoneFc,
-      website : websiteFc,
-      surPlace : surPlaceFc,
-      aEmporter : aEmporterFc,
-      accesPMR : accesPMRFc,
-      // typerestaus : typerestausFc
+      adresse: adresseFc,
+      telephone: telephoneFc,
+      website: websiteFc,
+      surPlace: surPlaceFc,
+      aEmporter: aEmporterFc,
+      accesPMR: accesPMRFc,
+      typerestaus: typerestausFc
     }
 
-    if( restaurant.latitude   !== '' && 
-        restaurant.longitude  !== '' &&
-        restaurant.nom        !== '' &&
-        restaurant.adresse    !== ''  ) {
-        this.apiBackService.addRestaurant(restaurant).subscribe(
-          resp=>
-          
+    if (restaurant.latitude !== '' &&
+      restaurant.longitude !== '' &&
+      restaurant.nom !== '' &&
+      restaurant.adresse !== '') {
+      this.apiBackService.addRestaurant(restaurant).subscribe(
+        resp =>
           this.router.navigate(['restaurants'])
-        );
-    }else{
-      
+      );
+    } else {
+
       this.errorMessage = "Renseigner les champs obligatoires **";
     }
-  
+
   }
+
+  onCheckChange(event : any) {
+    const formArray: FormArray = this.signupForm.get('typerestausFc') as FormArray;
+    console.log(FormArray);
+    
+    if (event.target.checked) {
+      
+      formArray.push(new FormControl({id : event.target.value}));
+      
+    }else { 
+      let i: number = 0;
+
+      formArray.controls.forEach((ctrl) => {
+        
+        if (ctrl.value['id'] == event.target.value) {
+          formArray.removeAt(i);
+          return;
+        }
+        
+        i++;
+      });
+    }
+  }
+
 
 }
 
