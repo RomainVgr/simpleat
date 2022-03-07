@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/pages/models/user';
+import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
+
 
 
 @Injectable({
@@ -12,7 +15,7 @@ export class AuthService {
   private apiUrl: string;
   private tokenKey: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     // On se sert des variables d'environnement de notre application
     this.apiUrl = environment.apiUrl;
     this.tokenKey = environment.tokenKey;
@@ -45,6 +48,17 @@ export class AuthService {
          return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
         })
      );
+   }
+
+   getConnectedUserInfo(): Observable<User> | void  {
+    const token = localStorage.getItem(this.tokenKey);
+    if(token) {
+      const decodedToken = jwt_decode<any>(token);
+      const userId = decodedToken.userId;
+      return this.http.get<User>(`${this.apiUrl}/user/${userId}`);
+    } else {
+      this.router.navigate(['signin']);
+    }
    }
 
 }

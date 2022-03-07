@@ -1,5 +1,3 @@
-import { RoleList } from "./roleList";
-
 export interface User {   
     id?:number;
     prenom: string;

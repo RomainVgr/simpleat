@@ -10,6 +10,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AuthGuard } from './services/auth.guard';
+import { PageAccountComponent } from './pages/page-account/page-account.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'categories', component: ListCategoriesComponent },
     { path: 'favoris', component: FavorisUserComponent },
     { path: 'filtres', component: FiltersPageComponent },
+    { path: 'profil', component: PageAccountComponent },
     { path: 'Deconnexion', redirectTo: 'home'},
     {path: 'restaurants', canActivate: [AuthGuard], component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},
