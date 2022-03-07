@@ -1,4 +1,19 @@
 input[type="search"], textarea{
   background-color: #edf5f1;
+
+}
+@media only screen and (max-width:753px) {
+
+  .content{
+   margin-left: 3vh;
+   margin-top: 3vh;
+ 
+    
+  }
+  // .btn{
+  //   display: none;
+  // }
+
+
 }
 

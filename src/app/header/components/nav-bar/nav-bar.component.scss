@@ -1,13 +1,15 @@
 
 
 #image-header{
+ 
   display: flex;
   justify-content: center;
+  
 }
 
 img{
   width: 100%;
-  display: block;
+  height: auto;
   margin: 0 auto;
   padding: 0;
   
@@ -22,4 +24,15 @@ img{
 
 
 
+
+@media only screen and (max-width:1131px) {
+  .navbar-toggler{
+    margin: 3vh;
+  }
+  .container-fluid{
+  padding: 0;
+  }
+
+
+}
 

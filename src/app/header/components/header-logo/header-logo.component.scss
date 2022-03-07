@@ -10,6 +10,7 @@
 
 }
 
+
 .trait{
 
   width: 100%;
@@ -26,4 +27,12 @@ p{
   left: 68px;
   padding : 0 10px 0 10px;
   color: grey;
+}
+
+@media only screen and (max-width:753px) {
+
+.trait{
+  display: none;
+}
+
 }
