@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <form class="row g-2" [formGroup]="userInfo">
+        <div class="col-md-6">
+            <label for="inputFirstName" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="inputFirstName" formControlName="firstName" readonly="readonly">
+        </div>
+        <div class="col-md-6">
+            <label for="inputLastName" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="inputLastName" formControlName="lastName" readonly="readonly">
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" formControlName="email" readonly="readonly">
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Role</label>
+            <input type="RoleList" class="form-control" id="inputRoleList" formControlName="RoleList" readonly="readonly">
+        </div>
+    </form>
+</div>

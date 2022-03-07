@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/pages/models/user';
+import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
+
 
 
 @Injectable({
@@ -12,36 +15,22 @@ export class AuthService {
   private apiUrl: string;
   private tokenKey: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     // On se sert des variables d'environnement de notre application
     this.apiUrl = environment.apiUrl;
     this.tokenKey = environment.tokenKey;
    }
 
-  //  signup(): Observable<any> {
-  //   //  const body = {
-  //   //     firstName: firstName,
-  //   //     lastName: lastName,
-  //   //     email: email,
-  //   //     password: password
-  //   //  };
+   signup(newUser: User): Observable<any> {
+    return this.http.post(`${this.apiUrl}/signup`, newUser);
+   }
 
-  //    console.log("Mon nouvel utilisateur : ", newUser);
-
-  //    return this.http.post(`${this.apiUrl}/register`, newUser);
-  //  }
 
    signin(email: string, password: string): Observable<any> {
      const body = {
        email: email,
        password: password
      };
-
-     console.log("Mon body : ", body);
-
-     // Modifier cette partie ci-dessous :
-     // - pour pouvoir stocker dans le localstorage notre accesstoken
-     // - Sous la clé "TOKEN-SIMPLEAT"
 
      return this.http.post(`${this.apiUrl}/signin`, body).pipe(
        map((x: any) => {
@@ -55,15 +44,12 @@ export class AuthService {
      );
    }
 
-  //  forgotPassword(email: string, password: string): Observable<any> {
-  //    const body = {
-  //      email: email,
-  //      password: password
-  //    };
-
-  //    console.log("Mon body : ", body);
-
-  //    return this.http.post(`${this.apiUrl}/forgot-psw`, body);
-  //  }
-
+   getConnectedUserInfo(): Observable<User> | void  {
+    const token = localStorage.getItem(this.tokenKey);
+    if(token) {
+      const decodedToken = jwt_decode<any>(token);
+      const userId = decodedToken.userId;
+      return this.http.get<User>(`${this.apiUrl}/user/${userId}`);
+    }
+   }
 }

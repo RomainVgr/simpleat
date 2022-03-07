@@ -1,0 +1,71 @@
+<div class="signup-form text-center">
+    <main class="form-signup">
+        <form  (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+            <h1>Inscription d'un membre</h1>
+            <div class="form-floating">
+                <input type="text" 
+                        class="form-control" 
+                        id="floatingInputfirstName" 
+                        placeholder="" 
+                        name="firstName" 
+                        formControlName="firstNameFc"
+                        [ngClass]="{'is-valid' : signupForm.controls['firstNameFc'].touched && signupForm.controls['firstNameFc'].valid, 
+                                    'is-invalid':  signupForm.controls['firstNameFc'].touched && !signupForm.controls['firstNameFc'].valid}">
+                <label for="floatingInputfirstName">Prénom</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" 
+                        class="form-control" 
+                        id="floatingInputlastName" 
+                        placeholder="" 
+                        name="lastName" 
+                        formControlName="lastNameFc"
+                        [ngClass]="{'is-valid' : signupForm.controls['lastNameFc'].touched && signupForm.controls['lastNameFc'].valid, 
+                                    'is-invalid':  signupForm.controls['lastNameFc'].touched && !signupForm.controls['lastNameFc'].valid}">
+                <label for="floatingInputlastName">Nom</label>
+            </div>
+            <div class="form-floating">
+                <input type="email" 
+                        class="form-control" 
+                        id="floatingInput" 
+                        placeholder="" 
+                        name="email" 
+                        formControlName="emailFc"
+                        [ngClass]="{'is-valid' : signupForm.controls['emailFc'].touched && signupForm.controls['emailFc'].valid, 
+                                    'is-invalid':  signupForm.controls['emailFc'].touched && !signupForm.controls['emailFc'].valid}">
+                <label for="floatingInput">Adresse email **</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" 
+                        class="form-control" 
+                        id="floatingPassword" 
+                        placeholder="" 
+                        name="password" 
+                        formControlName="passwordFc"
+                        [ngClass]="{'is-valid' : signupForm.controls['passwordFc'].touched && signupForm.controls['passwordFc'].valid, 
+                                    'is-invalid':  signupForm.controls['passwordFc'].touched && !signupForm.controls['passwordFc'].valid}">
+                <label for="floatingPassword">Mot de passe **</label>
+            </div>
+
+            <div class="form-floating">
+            <select class="form-select" id="roleList" formControlName="roleFc">
+                <option *ngFor="let c of roleList | keyvalue" value={{c.value}}>{{c.value}}</option>
+            </select>
+            <label for="roleList">Selectionner un rôle **</label>
+            </div>
+
+            <div *ngIf="alertMessage" class="alert alert-danger">
+                <p class="alert-link">{{alertMessage}}</p>
+            </div>
+            
+            <div *ngIf="successMessage" class="alert alert-success">
+                <p class="alert-link">{{successMessage}}</p>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-success" 
+                    type="submit" 
+                    [disabled]="signupForm.invalid">Inscription</button>
+
+        </form>
+    </main>
+</div>

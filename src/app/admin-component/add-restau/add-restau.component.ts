@@ -83,7 +83,6 @@ export class AddRestauComponent implements OnInit {
       restaurant.adresse !== '') {
       this.apiBackService.addRestaurant(restaurant).subscribe(
         resp =>
-
           this.router.navigate(['restaurants'])
       );
     } else {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ApiBackService } from './services/api-back.service';
+import { AuthGuard } from './services/auth.guard';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
   title = 'simpleat';
   dontShow: boolean = false;
 
-  constructor(public router:Router, private apiBackService : ApiBackService){
+  constructor(public router:Router, private apiBackService : ApiBackService, private authgard : AuthGuard){
     this.router.events.subscribe(e=>{
       //console.log(e);
       if(e instanceof NavigationEnd){
@@ -26,6 +27,7 @@ export class AppComponent {
   
 }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
+   }
 
-}
+
