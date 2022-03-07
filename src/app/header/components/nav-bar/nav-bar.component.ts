@@ -17,7 +17,7 @@ export class NavBarComponent implements OnInit {
   }
 
   onCloseSession() : void {
-this.tokenService.destroyToken();
+this.tokenService.destroyToken(this.tokenKey);
 this.route.navigate(['signin']);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiBackService } from 'src/app/services/api-back.service';
@@ -11,6 +11,7 @@ import { Restaurant } from '../models/restaurant';
 })
 export class AdminPageComponent implements OnInit {
 
+  sendId = new EventEmitter<number>();
 
   constructor( ) {
    
@@ -18,6 +19,9 @@ export class AdminPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  sendIdRestau(idRestau : number){
+    this.sendId.emit(idRestau);
 
+  }
 
 }

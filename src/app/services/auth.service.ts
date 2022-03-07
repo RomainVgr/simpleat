@@ -50,6 +50,7 @@ export class AuthService {
          console.log('Service : ', x.token);
          // Modification à faire ici
          localStorage.setItem(this.tokenKey, x.token);
+         //localStorage.setItem('ROLE', "ROLE_READER");
          return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
         })
      );

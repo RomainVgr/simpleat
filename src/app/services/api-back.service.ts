@@ -1,4 +1,4 @@
-import { Injectable, Input } from '@angular/core';
+import { EventEmitter, Injectable, Input } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -15,6 +15,7 @@ export class ApiBackService {
   public restoFilter: any[];
   public routeParam?: string;
   @Input() restaurant: any;
+  public restauAModif = new EventEmitter<Restaurant>();
 
   constructor(private httpClient: HttpClient) {
     this.restoFilter = [];
@@ -70,4 +71,10 @@ export class ApiBackService {
     return this.httpClient.get<User>(`${environment.apiUrl}/user/${id}`);
   }
 
+
+  public idRestauAModifier(restau:Restaurant): void {
+   
+    this.restauAModif.emit(restau);
+ }
 }
+

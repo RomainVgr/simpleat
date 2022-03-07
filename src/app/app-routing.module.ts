@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: 'favoris', component: FavorisUserComponent },
     { path: 'filtres', component: FiltersPageComponent },
     { path: 'Deconnexion', redirectTo: 'home'},
-    {path: 'restaurants', canActivate: [AuthGuard], component: RestoPageComponent},
+    {path: 'restaurants', canActivate: [AuthGuard], /*data : {ROLE : "ROLE_ADMIN"},*/ component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},
     {path: 'admin', component: AdminPageComponent},
     {path: '**', redirectTo: 'page-not-found' }

@@ -10,7 +10,6 @@ import { ApiBackService } from 'src/app/services/api-back.service';
 export class UpdateDelRestauComponent implements OnInit {
 
   restauList : Restaurant[];
-  @Output() idRestauAModif = new EventEmitter<number>();
 
   constructor(private apiBackService : ApiBackService) {
     this.restauList = [];
@@ -36,8 +35,8 @@ export class UpdateDelRestauComponent implements OnInit {
     });
   }
 
-  modifRestau(idRestau : number | undefined){
-    this.idRestauAModif.emit(idRestau);
+  modifRestau(restau : Restaurant){
+    this.apiBackService.idRestauAModifier(restau);
   }
 
 }

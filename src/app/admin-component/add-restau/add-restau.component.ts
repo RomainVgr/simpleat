@@ -1,8 +1,8 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Restaurant } from 'src/app/pages/models/restaurant';
 import { ApiBackService } from 'src/app/services/api-back.service';
 
@@ -18,6 +18,7 @@ export class AddRestauComponent implements OnInit {
   public errorMessage?: string;
   public listCategories$: Observable<any[]>;
   public expanded = false;
+  public idRestau : Subscription | undefined;
 
   constructor(private router: Router, private apiBackService: ApiBackService) {
     this.signupForm = new FormGroup({});
@@ -38,6 +39,36 @@ export class AddRestauComponent implements OnInit {
       accesPMRFc: new FormControl(''),
       typerestausFc: new FormArray([])
     })
+
+    this.idRestau = this.apiBackService.restauAModif.subscribe(restau => {
+
+
+    //   const formArray: FormArray = this.signupForm.get('typerestausFc') as FormArray;
+    //   if(restau.typerestaus != undefined){
+    //   for (let index = 0; index < restau.typerestaus.length; index++) {
+    //     //listCategories.filter(categorie => categorie.id == restau.typerestaus[index]['id'])
+    //     this.signupForm.patchValue({typerestausFc : {restau.typerestaus[index]['id'] : true}});
+    //     formArray.push(new FormControl(restau.typerestaus[index]['id'] : true));
+        
+    //   }
+    // }
+    //   console.log(formArray);
+      
+      this.signupForm = new FormGroup({
+        nomFc: new FormControl(restau.nom, [Validators.required]),
+        prixFc: new FormControl(restau.prix),
+        longitudeFc: new FormControl(restau.longitude, [Validators.required,]), // chercher une meilleure regex
+        latitudeFc: new FormControl(restau.latitude, [Validators.required]),
+        adresseFc: new FormControl(restau.adresse, [Validators.required]),
+        telephoneFc: new FormControl(restau.telephone),
+        websiteFc: new FormControl(restau.website, [Validators.pattern("/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/")]),
+        surPlaceFc: new FormControl(restau.surPlace),
+        aEmporterFc: new FormControl(restau.aEmporter),
+        accesPMRFc: new FormControl(restau.accesPMR),
+        typerestausFc: new FormArray([])
+      })
+    }
+    )
   }
 
   public getCategories(): Observable<any[]> {
@@ -116,6 +147,13 @@ export class AddRestauComponent implements OnInit {
     }
   }
 
+
+  ngOnDestroy() {
+    if (this.idRestau) {
+      this.idRestau.unsubscribe();
+      this.idRestau = undefined;
+    }
+  }
 
 }
 

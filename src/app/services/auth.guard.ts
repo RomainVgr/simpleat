@@ -11,6 +11,7 @@ import { TokenService } from './token.service';
 })
 export class AuthGuard implements CanActivate {
   private tokenKey: string;
+
   constructor(private router: Router, private tokenService : TokenService){
     this.tokenKey = environment.tokenKey;
   }
@@ -23,6 +24,9 @@ export class AuthGuard implements CanActivate {
       
       if(token) {
         const decodedToken = jwt_decode<any>(token);
+
+        // TODO boucle sur le ['auth'] pour controler le role et en fonction de ca renvoyer true ou false ac redirection page403
+        
         
         console.log('decodedToken : ', decodedToken);
         
@@ -31,7 +35,7 @@ export class AuthGuard implements CanActivate {
           const dateExp = new Date(decodedToken.exp * 1000);
           if(new Date() >= dateExp) {
             // le token a expiré, je n'autorise pas l'accès
-            this.tokenService.destroyToken();
+            this.tokenService.destroyToken(this.tokenKey);
             this.router.navigate(['signin']);
             return false;
           }
