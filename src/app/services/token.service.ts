@@ -33,8 +33,13 @@ export class TokenService {
   }
 
 
+<<<<<<< HEAD
   public destroyToken(tokenKey : string): void { 
     localStorage.removeItem(tokenKey);
     localStorage.removeItem('ROLE');
+=======
+  public destroyToken(token : any) { 
+    localStorage.removeItem(token);
+>>>>>>> dev
   }
 }

@@ -15,9 +15,7 @@ export class UpdateDelRestauComponent implements OnInit {
     this.restauList = [];
    }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   
   saveRestauList(event : any){
@@ -28,10 +26,7 @@ export class UpdateDelRestauComponent implements OnInit {
   deleteRestau(idRestau : number | undefined){
     this.apiBackService.deleteRestau(idRestau).subscribe( 
       resp =>{
-
-      
       this.restauList = this.restauList.filter(restaus => restaus.id != idRestau)
-      
     });
   }
 

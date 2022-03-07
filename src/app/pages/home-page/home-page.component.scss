@@ -1,7 +1,165 @@
-#demotext {
-    color: #FFFFFF;
-    background: #912C22;
-    text-shadow: 0 0 10px #FFFFFF;
-    color: #FFFFFF;
-    background: #912C22;
+.body{
+   width: 100%;
+   padding: 8vh 20vh;
+}
+
+h1{
+    font-size: 4vh;
+    padding-top: 3vh;
+}
+
+.preface{
+   text-align: center;
+   padding-bottom: 3vh;
+}
+
+.premier_bloc{
+    display: flex;
+    align-items: center;
+   
+}
+
+.deuxieme_bloc{
+    display: flex;
+    align-items: center;
+    
+}
+
+.troisieme_bloc{
+    display: flex;
+    align-items: center;
+}
+
+img{
+   
+    
+    margin: 5vh 0 0 0;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+   
+    
+}
+
+.uno{
+   padding-top: 6vh;
+    padding-left: 6vh;
+    text-align: justify;
+}
+
+.dos{
+    padding-top: 6vh;
+    padding-right: 6vh;
+    text-align: justify;
+}
+
+.tres{
+    padding-top: 6vh;
+  font-size: 3.5vh;
+}
+
+
+
+.separation{
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid #CE0000;
+    max-width: 83%;
+    padding : 20px;
+}
+
+.ligne-rouge{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.separation2{
+
+    border-bottom: 2px solid #CE0000;
+    max-width: 83%;
+    width: 100%;
+    padding : 20px;
+    
+}
+
+@media only screen and (max-width:1131px) {
+
+    .body{
+        display: flex;
+        justify-content: center;
+        margin: -1vh auto;
+        padding: 3vh;
+        flex-wrap: wrap; 
     }
+
+    img{
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        padding-bottom: 5vh;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .premier_bloc{
+        flex-wrap: wrap;
+    }
+    
+    .deuxieme_bloc{
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+    
+    .troisieme_bloc{
+        flex-wrap: wrap;
+    }
+
+    .uno{
+        padding-top: 0;
+        padding-left: 0;
+        padding-bottom: 2.5vh;
+        text-align: justify;
+     
+    }
+    
+    .dos{
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 2.5vh;
+        text-align: justify;
+    }
+    
+    .tres{
+        padding-top: 0;
+      font-size: 3.5vh;
+    }
+
+    .separation{
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid #CE0000;
+        width: 100%;
+        padding: 0;
+        
+    }
+
+    .ligne-rouge{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .separation2{
+        padding: 0;
+        border-bottom: 1px solid #CE0000;
+        max-width: 83%;
+    }
+
+    
+    
+    
+
+}

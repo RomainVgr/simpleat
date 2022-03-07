@@ -11,19 +11,13 @@ export class HomePageComponent implements OnInit {
 
   public userName : any;
 
-  constructor(private apiBackService : ApiBackService, private tokenService : TokenService) {
-    
-   }
+  constructor(private apiBackService : ApiBackService, private tokenService : TokenService) {}
 
   ngOnInit(): void {
       
     this.apiBackService.getPersonneById(this.tokenService.getCurrentUserId()).subscribe(
       user =>{
-
         this.userName = user.prenom;
-        
-
-
   })
 }
 
