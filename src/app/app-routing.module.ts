@@ -7,12 +7,14 @@ import { RestoPageComponent } from './pages/resto-page/resto-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FiltersPageComponent } from './pages/filters-page/filters-page.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { SignupComponent } from './pages/signup/signup.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'signin', pathMatch: 'full' },
     {path: 'signin', component: SigninComponent},
+    {path: 'signup', component: SignupComponent},
     { path: 'home', component: HomePageComponent },
     { path: 'categories', component: ListCategoriesComponent },
     { path: 'favoris', component: FavorisUserComponent },

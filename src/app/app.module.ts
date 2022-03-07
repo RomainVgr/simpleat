@@ -24,6 +24,7 @@ import { UpdateDelRestauComponent } from './admin-component/update-del-restau/up
 import { HeaderLogoComponent } from './header/components/header-logo/header-logo.component';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { FavorisUserComponent } from './pages/favoris-user/favoris-user.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FavorisUserComponent } from './pages/favoris-user/favoris-user.componen
     AddRestauComponent,
     UpdateDelRestauComponent,
     HeaderLogoComponent,
-    FavorisUserComponent
+    FavorisUserComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

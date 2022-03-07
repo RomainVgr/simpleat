@@ -1,3 +1,5 @@
+import { RoleList } from "./roleList";
+
 export interface User {   
     id?:number;
     prenom: string;
@@ -5,4 +7,5 @@ export interface User {
     email: string;
     password?: string;
     preference ?: object;
+    roleList ?: string[];
 }
