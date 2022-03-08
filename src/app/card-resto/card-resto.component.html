@@ -70,7 +70,7 @@
           <div class="trait-rouge pt-2 pb-0"></div>
             <div class="critere ps-1 pt-3">
                 
-              <div class="d-inline-flex " *ngIf="restaurant.surPlace else noInfosSurPlace">
+              <div class="d-inline-flex " *ngIf="restaurant.surPlace != null else noInfosSurPlace">
                   <span class="sur-place pe-3" style="color:#545454">Sur place :</span>            
                   <app-icon 
                     [iconName]="restaurant.surPlace ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-2 pt-1 '"
@@ -98,7 +98,7 @@
           <div class="critere d-flex justify-content-center ps-1 pt-3 pb-3">
             <span class="acces-pmr pe-1" style="color:#545454">Accès PMR :</span>
 
-            <div class="d-inline-flex " *ngIf="restaurant.accesPMR else noAccesPMR">
+            <div class="d-inline-flex " *ngIf="restaurant.accesPMR != null else noAccesPMR">
               <app-icon 
               [iconName]="restaurant.accesPMR ? 'bi bi-check-square-fill' : 'bi bi-x-square-fill ps-1 pt-1'"
               [iconColor]="restaurant.accesPMR ? '#4ECB71' : '#ED2F2F'"

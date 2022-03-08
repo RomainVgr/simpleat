@@ -63,6 +63,10 @@ export class ApiBackService {
     return this.httpClient.post<any[]>(`${environment.apiUrl}/add-restaurant`, newRestau);
   }
 
+  modifRestaurant(restau : Restaurant): Observable<any>{
+    return this.httpClient.put<any[]>(`${environment.apiUrl}/update-restaurant/${restau.id}`, restau);
+  }
+
   deleteRestau(idRestau: number | undefined): Observable<any> {
     return this.httpClient.delete<Restaurant>(`${environment.apiUrl}/delete-restaurant/${idRestau}`);
   }

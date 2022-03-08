@@ -11,7 +11,6 @@ import { Restaurant } from '../models/restaurant';
 })
 export class AdminPageComponent implements OnInit {
 
-  sendId = new EventEmitter<number>();
 
   constructor( ) {
    
@@ -19,9 +18,6 @@ export class AdminPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  sendIdRestau(idRestau : number){
-    this.sendId.emit(idRestau);
 
-  }
 
 }

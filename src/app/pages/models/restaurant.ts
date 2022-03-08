@@ -7,8 +7,22 @@ export interface Restaurant {
     longitude: string;
     telephone ?: string;
     website ?: string;
-    aEmporter?: boolean;
-    accesPMR?: boolean;
-    surPlace?: boolean;
+    aEmporter?: boolean | string;
+    accesPMR?: boolean | string;
+    surPlace?: boolean | string;
     typerestaus ?: [{id : number}];
+}
+
+export const EMPTY_RESTAU = {
+    nom: '',
+    adresse: '',
+    prix: 0,
+    latitude: '',
+    longitude: '',
+    telephone : '',
+    website : '',
+    aEmporter: '',
+    accesPMR: '',
+    surPlace: '',
+    typerestaus : undefined
 }
