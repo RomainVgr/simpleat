@@ -28,10 +28,11 @@ export class SignupComponent implements OnInit {
     this.signupForm = new FormGroup({
       firstNameFc : new FormControl(''),
       lastNameFc : new FormControl(''),
-      emailFc : new FormControl('', [Validators.email, Validators.required, Validators.pattern(/^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}/igm)]), // chercher une meilleure regex
+      emailFc : new FormControl('', [Validators.email, Validators.required, Validators.pattern("^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$")]),
       passwordFc : new FormControl('', [Validators.minLength(8), Validators.required]),
       roleFc : new FormControl('')
     })
+
 
     console.log(this.roleList);
   }
