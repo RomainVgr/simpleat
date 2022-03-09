@@ -46,7 +46,9 @@
       <div class="accordion-body">
 
         <div class="minMax p-3">
-          <span>Veuillez sélectionner le prix souhaité</span>
+          <span>Veuillez sélectionner la gamme de prix souhaitée</span>
+          <br>
+          <span>1(1 à 10)  2(11 à 20)  3(21 à 30)  4(31 à 20)</span>
         </div>
         <input type="range" class="form-range" ng-model="valuePrix" min="{{minPrice}}" max="{{maxPrice}}"
           (change)="OnChangeValuePrice($event)">
