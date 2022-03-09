@@ -26,6 +26,8 @@ export class AuthGuard implements CanActivate {
         const decodedToken = jwt_decode<any>(token);
 
         // TODO boucle sur le ['auth'] pour controler le role et en fonction de ca renvoyer true ou false ac redirection page403
+        //console.log(decodedToken['auth'][0]['authority']);
+         
       
         
         console.log('decodedToken : ', decodedToken);
@@ -37,13 +39,17 @@ export class AuthGuard implements CanActivate {
             // le token a expiré, je n'autorise pas l'accès
             this.tokenService.destroyToken(this.tokenKey);
             this.router.navigate(['signin']);
-            
+            return false;
+          }
+
+          if(route.data['ROLE'] && route.data['ROLE'] != localStorage.getItem('ROLE')){
+              this.router.navigate(['page-not-found']);
             return false;
           }
         }
-        
         console.log("C'est ok ! ")
         return true;
+
       } else {
         console.log("You shall not pass !!!!")
         this.router.navigate(['signin']); // redirection de notre utilisateur vers une url de notre application (dans notre code TS)

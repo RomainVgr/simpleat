@@ -34,12 +34,14 @@ export class AuthService {
 
      return this.http.post(`${this.apiUrl}/signin`, body).pipe(
        map((x: any) => {
-        console.log(x);
+        //console.log(x);
         
-         console.log('Service : ', x.token);
+        const decodedToken = jwt_decode<any>(x.token);
+         //console.log('Service : ', x.token);
          // Modification à faire ici
          localStorage.setItem(this.tokenKey, x.token);
-         //localStorage.setItem('ROLE', "ROLE_READER");
+
+         localStorage.setItem('ROLE', decodedToken['auth'][0]['authority']);
          return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
         })
      );
