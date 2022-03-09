@@ -5,6 +5,7 @@
         </div>
     </div>
     <div *ngFor="let restaurantData of listRestaurants">
-        <app-card-resto [restaurant]="restaurantData" (clickLike)="onEventLike()"></app-card-resto>
+        <app-card-resto [restaurant]="restaurantData" ></app-card-resto>
+        <!-- (clickLike)="onEventLike($event, restaurantData.id)" -->
     </div>
 </app-template-page>

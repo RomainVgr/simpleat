@@ -80,5 +80,13 @@ export class ApiBackService {
    
     this.restauAModif.emit(restau);
  }
+
+  public addPreference(idUser : number|null, idRestau:number|undefined) : Observable<any>{
+    return this.httpClient.post<any>(`${environment.apiUrl}/add-preference/${idUser}/${idRestau}`, {});
+ }
+
+  deletePreference(idUser : number|null, idRestau:number|undefined): Observable<any> {
+    return this.httpClient.delete<any>(`${environment.apiUrl}/delete-preference/${idUser}/${idRestau}`);
+  }
 }
 
