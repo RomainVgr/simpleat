@@ -15,16 +15,15 @@ import { PageAccountComponent } from './pages/page-account/page-account.componen
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     {path: 'signin', component: SigninComponent},
-    {path: 'signup', component: SignupComponent},
-    { path: 'home', component: HomePageComponent },
-    { path: 'categories', component: ListCategoriesComponent },
-    { path: 'favoris', component: FavorisUserComponent },
-    { path: 'filtres', component: FiltersPageComponent },
-    { path: 'profil', component: PageAccountComponent },
+    { path: 'home',canActivate: [AuthGuard], component: HomePageComponent },
+    { path: 'categories',canActivate: [AuthGuard], component: ListCategoriesComponent },
+    { path: 'favoris',canActivate: [AuthGuard], component: FavorisUserComponent },
+    { path: 'filtres',canActivate: [AuthGuard], component: FiltersPageComponent },
+    { path: 'profil',canActivate: [AuthGuard], component: PageAccountComponent },
     { path: 'Deconnexion', redirectTo: 'home'},
     {path: 'restaurants', canActivate: [AuthGuard], /*data : {ROLE : "ROLE_ADMIN"},*/ component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},
-    {path: 'admin', component: AdminPageComponent},
+    {path: 'admin',canActivate: [AuthGuard], component: AdminPageComponent},
     {path: '**', redirectTo: 'page-not-found' }
 ];
 
