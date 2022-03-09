@@ -11,6 +11,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AuthGuard } from './services/auth.guard';
 import { PageAccountComponent } from './pages/page-account/page-account.component';
+import { PageDeniedComponent } from './pages/page-denied/page-denied.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: 'Deconnexion', redirectTo: 'home'},
     {path: 'restaurants', canActivate: [AuthGuard], /*data : {ROLE : "ROLE_ADMIN"},*/ component: RestoPageComponent},
     {path: 'page-not-found',component: PageNotFoundComponent},
+    {path: 'page-denied',component: PageDeniedComponent},
     {path: 'admin',canActivate: [AuthGuard],data : {ROLE : "ROLE_ADMIN"}, component: AdminPageComponent},
     {path: '**', redirectTo: 'page-not-found' }
 ];

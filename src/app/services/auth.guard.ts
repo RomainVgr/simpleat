@@ -43,7 +43,7 @@ export class AuthGuard implements CanActivate {
           }
 
           if(route.data['ROLE'] && route.data['ROLE'] != localStorage.getItem('ROLE')){
-              this.router.navigate(['page-not-found']);
+              this.router.navigate(['page-denied']);
             return false;
           }
         }

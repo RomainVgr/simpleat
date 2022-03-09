@@ -26,6 +26,7 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { FavorisUserComponent } from './pages/favoris-user/favoris-user.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { PageAccountComponent } from './pages/page-account/page-account.component';
+import { PageDeniedComponent } from './pages/page-denied/page-denied.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { PageAccountComponent } from './pages/page-account/page-account.componen
     HeaderLogoComponent,
     FavorisUserComponent,
     SignupComponent,
-    PageAccountComponent
+    PageAccountComponent,
+    PageDeniedComponent
   ],
   imports: [
     BrowserModule,
