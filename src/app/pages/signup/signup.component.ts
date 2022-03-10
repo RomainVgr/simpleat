@@ -61,6 +61,7 @@ export class SignupComponent implements OnInit {
           this.successMessage = "Membre ajouté !";
         }
       )
+      this.signupForm.reset()
     } else {
       this.alertMessage = "Erreur d'ajout !";
     }

@@ -20,6 +20,7 @@ export class AddRestauComponent implements OnInit {
   public idRestau: Subscription | undefined;
   public formArrayCheckbox: FormArray;
   public idRestauAModifier?: number = 0; // On instancie a 0 ou undefined = on est en CREATION de Restau
+  public successMessage?:  string;
 
   constructor(private router: Router, private apiBackService: ApiBackService) {
     this.signupForm = new FormGroup({});
@@ -126,15 +127,16 @@ export class AddRestauComponent implements OnInit {
             resp => {this.idRestauAModifier = 0 
             // Une fois le retour du subscribe qui est la preuve du bon enregistrement alors
             // On reinitialise identifiant restau a 0 pour se remettre en mode CREATION
-            
-            this.router.navigate(['restaurants'])
+            this.successMessage = "Restaurant modifié !"
             }
           )
       } else { // sinon on crée un restau
         this.apiBackService.addRestaurant(restaurant).subscribe(
           resp =>
-            this.router.navigate(['restaurants'])
+          this.successMessage = "Restaurant ajouté !"
+       
         );
+        this.initForm(EMPTY_RESTAU);
       }
     } else {
 

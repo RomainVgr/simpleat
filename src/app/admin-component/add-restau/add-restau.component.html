@@ -147,7 +147,10 @@
                     <label class="form-check-label" for="checkboxAccesPMRNull">Pas d'infos</label>
                 </div>
             </div>
-
+            
+            <div *ngIf="successMessage" class="alert alert-success">
+                <p class="alert-link">{{successMessage}}</p>
+            </div>
             <div *ngIf="errorMessage" class="alert alert-danger">
                 <p class="alert-link">{{errorMessage}}</p>
             </div>

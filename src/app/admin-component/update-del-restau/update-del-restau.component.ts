@@ -24,11 +24,13 @@ export class UpdateDelRestauComponent implements OnInit {
   }
 
   deleteRestau(idRestau : number | undefined){
-    this.apiBackService.deleteRestau(idRestau).subscribe( 
+    if(confirm("Êtes-vous sur de vouloir supprimer ce restaurant ?")){
+        this.apiBackService.deleteRestau(idRestau).subscribe( 
       resp =>{
       this.restauList = this.restauList.filter(restaus => restaus.id != idRestau)
     });
   }
+}
 
   modifRestau(restau : Restaurant){
     this.apiBackService.idRestauAModifier(restau);
