@@ -39,15 +39,7 @@ export class AddRestauComponent implements OnInit {
       //On enregistre un identifiant de restaurant, preuve qu'on est bien en MODIFICATION
       this.idRestauAModifier = restau.id;
 
-      // on vide les checkbox si on en a coché avant de cliquer sur une modif
-      this.formArrayCheckbox.controls = [];
-
-      // on vide (pour l'affichage également)
-      let inputCategories = document.querySelectorAll('#checkboxes li input');
-      for (let i = 0; i < inputCategories.length; i++) {
-        let input = inputCategories[i] as HTMLInputElement
-        input.checked = false;
-      }
+      this.cleanCheckbox();
 
       if (restau.typerestaus != undefined && restau.typerestaus != null) {
         for (let index = 0; index < restau.typerestaus.length; index++) {
@@ -123,17 +115,26 @@ export class AddRestauComponent implements OnInit {
         this.idRestauAModifier != null &&
         this.idRestauAModifier != undefined) {
           this.apiBackService.modifRestaurant(restaurant).subscribe(
-            resp => {this.idRestauAModifier = 0 
+            resp => {
+              this.idRestauAModifier = 0 
             // Une fois le retour du subscribe qui est la preuve du bon enregistrement alors
             // On reinitialise identifiant restau a 0 pour se remettre en mode CREATION
+
+              this.initForm(EMPTY_RESTAU);
+              this.cleanCheckbox();
             
-            this.router.navigate(['restaurants'])
+            //this.router.navigate(['restaurants'])
             }
           )
       } else { // sinon on crée un restau
         this.apiBackService.addRestaurant(restaurant).subscribe(
-          resp =>
-            this.router.navigate(['restaurants'])
+          resp => {
+          this.initForm(EMPTY_RESTAU)
+          
+          this.cleanCheckbox();
+          
+          //this.router.navigate(['restaurants'])
+          }
         );
       }
     } else {
@@ -163,6 +164,18 @@ export class AddRestauComponent implements OnInit {
 
         i++;
       });
+    }
+  }
+
+  cleanCheckbox(){
+    // on vide les checkbox si on en a coché avant de cliquer sur une modif
+    this.formArrayCheckbox.controls = [];
+
+    // on vide (pour l'affichage également)
+    let inputCategories = document.querySelectorAll('#checkboxes li input');
+    for (let i = 0; i < inputCategories.length; i++) {
+      let input = inputCategories[i] as HTMLInputElement
+      input.checked = false;
     }
   }
 
