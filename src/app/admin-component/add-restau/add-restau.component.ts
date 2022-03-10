@@ -131,7 +131,7 @@ export class AddRestauComponent implements OnInit {
           resp => {
           this.initForm(EMPTY_RESTAU)
           
-          this.cleanCheckbox();
+          this.cleanCheckbox()
           
           //this.router.navigate(['restaurants'])
           }
