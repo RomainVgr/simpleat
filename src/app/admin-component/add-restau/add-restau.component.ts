@@ -72,7 +72,7 @@ export class AddRestauComponent implements OnInit {
       latitudeFc: new FormControl(restau.latitude, [Validators.required]),
       adresseFc: new FormControl(restau.adresse, [Validators.required]),
       telephoneFc: new FormControl(restau.telephone),
-      websiteFc: new FormControl(restau.website, [Validators.pattern("/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/")]),
+      websiteFc: new FormControl(restau.website, [Validators.pattern("/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/")]), // voir une autre regex
       surPlaceFc: new FormControl(restau.surPlace),
       aEmporterFc: new FormControl(restau.aEmporter),
       accesPMRFc: new FormControl(restau.accesPMR),
