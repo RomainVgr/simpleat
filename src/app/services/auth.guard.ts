@@ -24,11 +24,6 @@ export class AuthGuard implements CanActivate {
       
       if(token) {
         const decodedToken = jwt_decode<any>(token);
-
-        // TODO boucle sur le ['auth'] pour controler le role et en fonction de ca renvoyer true ou false ac redirection page403
-        //console.log(decodedToken['auth'][0]['authority']);
-         
-      
         
         console.log('decodedToken : ', decodedToken);
         
@@ -42,8 +37,14 @@ export class AuthGuard implements CanActivate {
             return false;
           }
 
-          if(route.data['ROLE'] && route.data['ROLE'] != localStorage.getItem('ROLE')){
-              this.router.navigate(['page-not-found']);
+          if(route.data['ROLE'] ){
+            for (let index = 0; index < decodedToken['auth'].length; index++) {
+              if(route.data['ROLE'] == decodedToken['auth'][index]['authority']){
+                return true;
+              }
+            }
+            
+            this.router.navigate(['page-not-found']);
             return false;
           }
         }

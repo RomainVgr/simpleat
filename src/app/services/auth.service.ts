@@ -36,12 +36,9 @@ export class AuthService {
        map((x: any) => {
         //console.log(x);
         
-        const decodedToken = jwt_decode<any>(x.token);
          //console.log('Service : ', x.token);
          // Modification à faire ici
          localStorage.setItem(this.tokenKey, x.token);
-
-         localStorage.setItem('ROLE', decodedToken['auth'][0]['authority']);
          return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
         })
      );
