@@ -131,10 +131,10 @@ export class AddRestauComponent implements OnInit {
         this.apiBackService.addRestaurant(restaurant).subscribe(
           resp => {
           this.initForm(EMPTY_RESTAU)
-          this.successMessage = "Restaurant ajouté !"
           this.cleanCheckbox()
+          this.successMessage = "Restaurant ajouté !"
+          this.router.navigate(['admin'])
           
-          //this.router.navigate(['restaurants'])
           }
         );
         this.initForm(EMPTY_RESTAU);
@@ -180,7 +180,6 @@ export class AddRestauComponent implements OnInit {
       input.checked = false;
     }
   }
-
 
   ngOnDestroy() {
     if (this.idRestau) {

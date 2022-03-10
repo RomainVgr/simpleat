@@ -62,12 +62,12 @@ export class RestoPageComponent implements OnInit {
       restauByCat: this.apiBackService.restoByCat
     }).subscribe(({ restaurants, user, restauByCat }) => {
 
-
       if (this.beforeRoute === "filtres") {
         this.listRestaurants = this.apiBackService.restoFilter;
-      } else if (this.beforeRoute === "categories" && restauByCat.length > 0) {
+        this.apiBackService.restoFilter = restaurants;
+      } else if (this.beforeRoute === "categories") {
         this.listRestaurants = restauByCat
-        this.apiBackService.restoByCat = of([]);
+        this.apiBackService.restoByCat = of(restaurants);
       } else {
         this.listRestaurants = restaurants;
       }
