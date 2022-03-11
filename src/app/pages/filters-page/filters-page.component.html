@@ -46,15 +46,15 @@
       <div class="accordion-body">
 
         <div class="minMax p-3">
-          <span>Veuillez sélectionner la gamme de prix souhaitée *</span>
+          <span>Veuillez sélectionner la gamme de prix souhaitée</span>
         </div>
         <input type="range" class="form-range" ng-model="valuePrix" min="{{minPrice}}" max="{{maxPrice}}"
           (change)="OnChangeValuePrice($event)">
         <div class="valuesPrix d-flex d-flex justify-content-between">
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
+          <span>1-10€</span>
+          <span>11-20€</span>
+          <span>21-30€</span>
+          <span>31-40€</span>
         </div>
       </div>
     </div>
@@ -118,11 +118,3 @@
 
 <button class="btn-search btn-primary" type="button" (click)="onSendFilters()">LANCER LA
   RECHERCHE</button>
-
-<p style="margin-left: 5px;">* Gamme de prix :</p>
-<ul>
-  <li>1 : 1€ à 10 €</li>
-  <li>2 : 11€ à 20 €</li>
-  <li>3 : 21€ à 30 €</li>
-  <li>4 : 31€ à 40 €</li>
-</ul>
